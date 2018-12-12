@@ -1,0 +1,30 @@
+.outer {
+    background-color: #fff;
+    border-radius: 0.25rem;
+    padding: 20px 12px 12px 12px;
+}
+
+.header-fields > div {
+    padding-right: 20px;
+}
+
+.slds-icon_container {
+    border-radius: 2px;
+}
+
+.total-msrp {
+    width: 80px;
+    color: #6cb239;
+}
+
+.drop-zone {
+    box-sizing: border-box;
+    min-height: 200px;
+    border-width: 2px;
+    border-style: dashed;
+    border-color: transparent;
+}
+
+.drop-zone.active {
+    border-color: #6cb239;
+}

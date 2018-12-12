@@ -1,0 +1,26 @@
+<template>
+
+    <lightning-card>
+        <h1 slot="title">
+            <img src={imageAloe} class="icon" alt="Aloe image"> Merchandise List
+        </h1>
+
+        <template if:true={merchandises.data}>
+            <div slot="actions">
+                <c-paginator page={page} pages={merchandises.data.pages} total={merchandises.data.total} label="products" onpreviouspage={handlePagePrevious}
+                    onnextpage={handlePageNext}></c-paginator>
+            </div>
+
+            <template for:each={merchandises.data.items} for:item="item">
+                <lightning-layout-item size="12" key={item.id}>
+                    <c-merchandise-tile merchandise={item}></c-merchandise-tile>
+                </lightning-layout-item>
+            </template>
+        </template>
+        <template if:true={merchandises.error}>
+            <c-error-panel errors={merchandises.error}></c-error-panel>
+        </template>
+
+    </lightning-card>
+
+</template>

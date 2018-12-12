@@ -1,0 +1,59 @@
+.content {
+    background-color: #FAFAF9;
+    border-radius: 0.25rem;
+    border: 1px solid rgb(221, 219, 218);
+    border-radius: .25rem;
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.10);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+}
+
+.list-wrapper {
+    position: relative;
+    flex: 2;
+    overflow: scroll;
+}
+
+.slds-button-group {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+
+lightning-datatable {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+}
+
+lightning-tree {
+    position: absolute;
+    top: 50px;
+    left: 12px;
+    right: 12px;
+}
+
+form {
+    margin: 20px 0;
+}
+
+.slds-modal__header .icon {
+    height: 28px;
+    margin-right: 8px;
+}
+
+.slds-modal__header .slds-text-heading_medium {
+    display: inline-block;
+}
+
+.slds-button-group {
+    background: #FFFFFF;
+    border-radius: .25rem;
+}
+
+.slds-tree_container {
+    max-width: inherit;
+}

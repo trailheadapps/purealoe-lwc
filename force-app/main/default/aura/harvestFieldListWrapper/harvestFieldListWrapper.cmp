@@ -1,0 +1,12 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute
+        name="channel"
+        type="String"
+        default="Field_Status_Change__e"
+    />
+    <aura:attribute name="empMessage" type="Object"></aura:attribute>
+    <aura:handler name="init" value="{!this}" action="{!c.subscribe}" />
+    <lightning:empApi aura:id="empApi" />
+
+    <c:harvestFieldList empMessage="{!v.empMessage}"></c:harvestFieldList>
+</aura:component>

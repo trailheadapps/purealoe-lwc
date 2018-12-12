@@ -1,0 +1,34 @@
+.border {
+    cursor: -webkit-grab;
+    border-bottom: solid 1px #d8dde6;
+    width: 100%;
+}
+
+a {
+	color: inherit;
+}
+
+:active {
+    cursor: -webkit-grabbing;
+}
+
+img.merchandise {
+    height: auto;
+    min-height: 50px;
+    width: 50px;
+}
+
+img {
+    max-width: initial;
+    border-radius: 0.25rem;
+}
+
+.price,
+.title {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.price {
+    color: #6CB239;
+}

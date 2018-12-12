@@ -1,0 +1,21 @@
+<template>
+
+        <div class="slds-grid">
+            <div class="slds-tabs_path" role="application">
+                <ul class="slds-tabs_path__nav" role="tablist">
+                    <template for:each={stepsPrivate} for:item="step">
+                        <li class={step.cssClass} role="presentation" key={step.value}>
+                            <a class="slds-tabs_path__link" data-step={step.value} onclick={handleStepClicked}>
+                              <span class="slds-tabs_path__stage">
+                                  <lightning-icon icon-name="utility:check" size="x-small" class="process-icon"></lightning-icon>
+                                <span class="slds-assistive-text">Stage Complete</span>
+                              </span>
+                              <span class="slds-tabs_path__title">{step.value}</span>
+                            </a>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+
+</template>

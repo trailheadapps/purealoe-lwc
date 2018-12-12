@@ -1,0 +1,57 @@
+<template>
+
+    <div class="outer">
+        <template if:false={error}>
+            <lightning-layout>
+                <lightning-layout-item>
+                    <p class="slds-text-heading_small slds-p-bottom_small">Bundle Items</p>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout class="header">
+                <lightning-layout-item class="slds-p-right_medium">
+                    <lightning-icon icon-name="custom:custom17"></lightning-icon>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="grow">
+                    <lightning-layout class="header-fields">
+                        <lightning-layout-item>
+                            <p class="slds-text-title slds-truncate slds-m-bottom_xx-small">Total MSRP</p>
+                            <p class="slds-text-heading_small slds-truncate total-msrp">
+                                $<span class="totalMSRP">{totalMSRP}</span>
+                            </p>
+                        </lightning-layout-item>
+                        <lightning-layout-item>
+                            <p class="slds-text-title slds-truncate slds-m-bottom_xx-small">Products</p>
+                            <p class="slds-text-heading_small slds-truncate ">{bundleItems.length}</p>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="horizontal-large">
+                            <p class="slds-text-title slds-truncate slds-m-bottom_xx-small">Qty</p>
+                            <p class="slds-text-heading_small slds-truncate">{totalQty}</p>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </lightning-layout-item>
+            </lightning-layout>
+
+
+            <div class="drop-zone" ondrop={handleDrop} ondragover={handleDragOver} ondragleave={handleDragLeave}>
+
+                <div>
+                    <lightning-layout multiple-rows="true">
+                        <template for:each={bundleItems} for:item="bundleItem">
+                            <lightning-layout-item key={bundleItem.id} size="12" small-device-size="6" medium-device-size="6"
+                                large-device-size="3">
+                                <c-bundle-tile bundle-item={bundleItem} ondelete={handleBundleItemDelete}
+                                    onchange={handleBundleItemChange}></c-bundle-tile>
+                            </lightning-layout-item>
+                        </template>
+                    </lightning-layout>
+                </div>
+
+            </div>
+        </template>
+
+        <template if:true={error}>
+            <c-error-panel errors={error}></c-error-panel>
+        </template>
+    </div>
+
+</template>

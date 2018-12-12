@@ -1,0 +1,44 @@
+<template>
+
+    <div>
+        <div class="content">
+
+            <template if:true={treeData}>
+
+                <div class="list-wrapper">
+                    <template if:true={isTable}>
+                        <lightning-datatable class="table" key-field="id" data={tableData} columns={columns} onrowselection={handleRowSelected}></lightning-datatable>
+                    </template>
+
+                    <template if:true={isTree}>
+                        <lightning-tree items={treeData} header="Fields" onselect={handleTreeItemSelected}></lightning-tree>
+                    </template>
+
+                    <template if:true={isMap}>
+                        <c-harvest-field-map class="map" harvest-fields={tableData} emp-message={empMessage} onselectionchange={handleMapRecordSelected}></c-harvest-field-map>
+                    </template>
+
+                    <lightning-button-group>
+                        <lightning-button-icon icon-name="utility:right_align_text" onclick={handleTreeShow}></lightning-button-icon>
+                        <lightning-button-icon icon-name="utility:table" onclick={handleDatatableShow}></lightning-button-icon>
+                        <lightning-button-icon icon-name="utility:location" onclick={handleMapShow}></lightning-button-icon>
+                    </lightning-button-group>
+
+                </div>
+
+                <c-action-bar onaction={handleAction}></c-action-bar>
+
+            </template>
+
+            <template if:true={error}>
+                    <c-error-panel errors={error}></c-error-panel>
+            </template>
+        </div>
+
+        <template if:true={popup}>
+            <c-irrigation-dialog harvest-fields={tableData} selected-harvest-fields={selectedItems} onclose={handleDialogClose}
+                onsubmit={handleDialogSubmit}></c-irrigation-dialog>
+        </template>
+    </div>
+
+</template>

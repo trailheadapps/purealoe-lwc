@@ -1,0 +1,12 @@
+<template>
+
+    <div if:true={record.data} class="container">
+        <img src={pictureUrl} alt="Product picture">
+        <div class="title">{name}</div>
+    </div>
+
+    <template if:true={record.error}>
+        <c-error-panel errors={record.error}></c-error-panel>
+    </template>
+
+</template>

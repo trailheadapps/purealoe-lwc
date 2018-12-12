@@ -1,0 +1,5 @@
+/* TODO No rounded borders */
+:host {
+    border-radius: 0.25rem;
+    font-size: 1.2rem;
+}

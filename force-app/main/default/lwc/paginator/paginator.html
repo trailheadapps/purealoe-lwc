@@ -1,0 +1,17 @@
+<template>
+
+    <div class="container">
+        <div class="left">
+            <template if:true={hasMoreThanOnePage}>
+                <lightning-button-icon icon-name="utility:chevronleft" variant="border-filled" onclick={handlePagePrevious}></lightning-button-icon>
+            </template>
+        </div>
+        <div class="centered">{pagesText}</div>
+        <div class="right">
+            <template if:true={isEndOfPages}>
+                <lightning-button-icon icon-name="utility:chevronright" variant="border-filled" onclick={handlePageNext}></lightning-button-icon>
+            </template>
+        </div>
+    </div>
+
+</template>

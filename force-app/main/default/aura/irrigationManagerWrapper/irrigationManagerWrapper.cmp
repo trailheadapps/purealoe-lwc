@@ -1,0 +1,17 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global">
+
+    <aura:attribute name="startTime" type="String" />
+    <aura:attribute name="duration" type="String" />
+    <aura:attribute name="ldsRecId" type="String" />
+    <aura:attribute name="msgText" type="String" />
+    <aura:attribute name="addedMsgText" type="String" />
+    <aura:attribute name="defaultMsg" type="String" default="{! 'Alert! Irrigation for ' + v.harvestRecord.Name + ' will begin at ' + v.startTime + ', and is scheduled to last '+ v.duration + ' minutes.'}"/>
+    <aura:attribute name="harvestRecord" type="Harvest_Field__c"/>
+    <aura:attribute name="overrideCount" type="Integer" default="{!v.harvestRecord.Irrigation_Overrides__c}" />
+
+    <force:recordData aura:id="dataService" recordId="{!v.ldsRecId}" targetFields="{!v.harvestRecord}" fields="Id, Name, Status__c, Irrigation__c, Irrigation_Overrides__c"/>
+
+    <c:irrigationManager startTime="{!v.startTime}" duration="{!v.duration}" ldsRecId="{!v.ldsRecId}" defaultMsg="{!v.defaultMsg}"
+        overrideCount="{!v.overrideCount}" onflowdatachanged="{!c.updateFlowData}"></c:irrigationManager>
+
+</aura:component>
