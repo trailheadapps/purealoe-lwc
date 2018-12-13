@@ -1,4 +1,4 @@
-Crop__c,Irrigation_Overrides__c,Irrigation__c,Map_Id__c,Name,Picture_URL__c,Sensor_Id__c,Size__c,Status__c,Yield__c
+Crop,Irrigation_Overrides,Irrigation,Map Id,Name,Picture URL,Sensor Id,Size,Status,Yield
 Aloe,3,FALSE,3,Aloe NE-3,https://s3-us-west-1.amazonaws.com/sfdc-demo/karibu/crop_aloe4.png,3,3 acres,Alert,200
 Pumpkin,12,FALSE,9,Pumpkin NE-2,https://s3-us-west-1.amazonaws.com/sfdc-demo/karibu/crop_pumpkin.png,9,3 acres,Warning,25
 Pumpkin,9,FALSE,16,Pumpkin NE-1,https://s3-us-west-1.amazonaws.com/sfdc-demo/karibu/crop_pumpkin.png,16,2 acres,OK,25

@@ -50,7 +50,7 @@ export default class HarvestFieldMapNav extends NavigationMixin(
         const fieldId = event.target.classList.value;
         if (fieldId && fieldId.substring(0, 5) === 'field') {
             const mapId = fieldId.substring(5);
-            this.wiredHarvestFields.forEach(field => {
+            this.wiredHarvestFields.data.forEach(field => {
                 if (field.Map_Id__c === mapId) {
                     this[NavigationMixin.Navigate]({
                         type: 'standard__recordPage',

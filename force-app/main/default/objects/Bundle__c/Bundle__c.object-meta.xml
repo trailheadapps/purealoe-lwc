@@ -56,13 +56,13 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <label>Product Bundle</label>
+    <label>Merchandise Bundle</label>
     <nameField>
         <displayFormat>B-{0000}</displayFormat>
         <label>Bundle Name</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Product Bundles</pluralLabel>
+    <pluralLabel>Merchandise Bundles</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
