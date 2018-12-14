@@ -56,13 +56,13 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <label>Product</label>
+    <label>Merchandise</label>
     <nameField>
         <displayFormat>M-{0000}</displayFormat>
         <label>Merchandise Name</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Products</pluralLabel>
+    <pluralLabel>Merchandises</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

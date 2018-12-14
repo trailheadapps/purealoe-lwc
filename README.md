@@ -18,7 +18,7 @@ Find more details about Pure Aloe on the Salesforce Developer blog:
 
 ## Table of Contents
 
--   [Installation](#installation)
+-   Installation
     -   [Installing Pure Aloe using Salesforce DX](#installing-pure-aloe-using-salesforce-dx)
     -   [Installing Pure Aloe using an unlocked package](#installing-pure-aloe-using-an-unlocked-package)
 -   [Optional installation instructions](#optional-installation-instructions)
@@ -26,7 +26,7 @@ Find more details about Pure Aloe on the Salesforce Developer blog:
 
 ## Installation
 
-There are two ways to install Easy Spaces:
+There are two ways to install Pure Aloe:
 
 -   [Using Salesforce DX](#installing-pure-aloe-using-salesforce-dx): This is the recommended installation option. Use this option if you are a developer who wants to experience the app and the code.
 -   [Using an Unlocked Package](#installing-pure-aloe-using-an-unlocked-package): This option allows anybody to experience the sample app without installing a local development environment.
@@ -38,7 +38,7 @@ There are two ways to install Easy Spaces:
     - Sign up for a Spring '19 pre-release org and enable Dev Hub functionality
     - Install the pre-release version of the Salesforce CLI
     - Install Visual Studio Code
-    - Install the Visual Studio Code Salesforce extensions, including the LWC extension
+    - Install the Visual Studio Code Salesforce extensions, including the Lightning Web Components extension
 
 1. Authenticate with your hub org (if not already done). The command below uses the `-a` flag to assign an alias that can be used in other commands:
 
@@ -50,7 +50,7 @@ There are two ways to install Easy Spaces:
 
     ```
     git clone https://github.com/trailheadapps/purealoe-lwc
-    cd purealoe
+    cd purealoe-lwc
     ```
 
 1) Create a scratch org and provide it with an alias (**purealoe** in the command below):
@@ -83,15 +83,19 @@ There are two ways to install Easy Spaces:
     sfdx force:org:open
     ```
 
+1. In **App Launcher**, select the **Pure Aloe** app
+
+1. Have fun exploring!
+
 ### Installing Pure Aloe using an unlocked package
 
 Use this option if you don't have Salesforce DX configured or if you want to experience the sample app and do not plan to modify the code.
 
-1. [Sign up](https://www.salesforce.com/form/signup/prerelease-spring19/) for a Spring '19 prerelease org.
+1. [Sign up](https://www.salesforce.com/form/signup/prerelease-spring19/) for a Spring '19 pre-release org.
 
 1. Enable MyDomain in your DE org. Instructions to do this are [here](https://trailhead.salesforce.com/modules/identity_login/units/identity_login_my_domain).
 
-1. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tB0000000cPEhIAM) to install the Pure Aloe unlocked package into your DE org.
+1. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tB0000000cPFkIAM) to install the Pure Aloe unlocked package into your DE org. Approve the Third-Party access during the installation process.
 
 1. Select **Install for All Users**
 
@@ -99,15 +103,15 @@ Use this option if you don't have Salesforce DX configured or if you want to exp
 
     - In **Setup**, type **Data Import** in the Quick Find box and click **Data Import Wizard**.
     - Click **Launch Wizard**.
-    - Click the **Custom objects** tab, click **Harvest Fields**, and click **Add New Records**.
-    - Drag **Harvest_Fields_Data.csv** from the data folder of this project to the upload area.
+    - Click the **Custom objects** tab, click **Harvest Fields**, and click **Add new records**.
+    - Drag **Harvest_Field_Data.csv** from the data folder of this project to the upload area.
     - Click **Next**, **Next**, and **Start Import**.
 
 1. Import Merchandise data:
 
     - In **Setup**, type **Data Import** in the Quick Find box and click **Data Import Wizard**.
     - Click **Launch Wizard**.
-    - Click the **Custom objects** tab, click **Merchandise**, and click **Add New Records**.
+    - Click the **Custom objects** tab, click **Merchandises**, and click **Add new records**.
     - Drag **Merchandise_Data.csv** from the data folder of this project to the upload area.
     - Click **Next**, **Next**, and **Start Import**.
 
