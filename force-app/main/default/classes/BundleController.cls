@@ -7,28 +7,4 @@ global with sharing class BundleController {
                 WHERE Bundle__c = :bundleId];
     }
 
-    @AuraEnabled
-    public static Bundle_Item__c addBundleItem(Id bundleId, Id productId, Decimal qty) {
-		Bundle_Item__c item = new Bundle_Item__c();
-        item.Bundle__c = bundleId;
-        item.Merchandise__c = productId;
-        item.Qty__c = 10;
-        insert item;
-		return item;
-    }
-
-	@AuraEnabled
-    public static Bundle_Item__c updateBundleItem(Bundle_Item__c bundleItem) {
-        update bundleItem;
-		return bundleItem;
-    }
-
-	@AuraEnabled
-    public static Bundle_Item__c removeBundleItem(Id bundleItemId) {
-		Bundle_Item__c item = new Bundle_Item__c();
-        item.Id = bundleItemId;
-        delete item;
-		return item;
-    }
-
 }
