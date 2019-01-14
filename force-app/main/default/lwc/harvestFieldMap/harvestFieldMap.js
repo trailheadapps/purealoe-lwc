@@ -20,7 +20,9 @@ export default class HarvestFieldMap extends LightningElement {
     @api
     set empMessage(value) {
         this._empMessage = value;
-        this.handleEmpMessage();
+        if (value) {
+            this.handleEmpMessage();
+        }
     }
     get empMessage() {
         return this._empMessage;
