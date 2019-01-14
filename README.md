@@ -24,6 +24,7 @@ Find more details about Pure Aloe on the Salesforce Developer blog:
   - [Installing Pure Aloe using an unlocked package](#installing-pure-aloe-using-an-unlocked-package)
 
 - [Optional installation instructions](#optional-installation-instructions)
+
 - [Distributor App](#distributor-app)
 
 ## Installation
@@ -50,55 +51,43 @@ There are two ways to install Pure Aloe:
   sfdx force:auth:web:login -d -a myhuborg
   ```
 
-1) Clone the purealoe repository:
+3. Clone the purealoe repository:
 
-````
 ```
 git clone https://github.com/trailheadapps/purealoe-lwc
 cd purealoe-lwc
 ```
-````
 
-1) Create a scratch org and provide it with an alias (**purealoe** in the command below):
+1. Create a scratch org and provide it with an alias (**purealoe** in the command below):
 
-````
 ```
 sfdx force:org:create -s -f config/project-scratch-def.json -a purealoe
 ```
-````
 
-1) Push the app to your scratch org:
+1. Push the app to your scratch org:
 
-````
 ```
 sfdx force:source:push
 ```
-````
 
-1) Assign the purealoe permission set to the default user:
+1. Assign the purealoe permission set to the default user:
 
-````
 ```
 sfdx force:user:permset:assign -n purealoe
 ```
-````
 
-1) Load sample data:
+1. Load sample data:
 
-````
 ```
 sfdx force:data:tree:import --plan ./data/Harvest_Field__c-plan.json
 sfdx force:data:tree:import --plan ./data/Merchandise__c-plan.json
 ```
-````
 
-1) Open the scratch org:
+1. Open the scratch org:
 
-````
 ```
 sfdx force:org:open
 ```
-````
 
 1. In **App Launcher**, select the **Pure Aloe** app
 
@@ -150,14 +139,18 @@ This repository contains several files that are relevant if you want to integrat
 
 ### Pre-commit hook
 
-This repository also comes with a <package.json> file that makes it easy to set up a pre-commit hook that enforces code formatting and linting by running Prettier and ESLint every time you `git commit` changes.
+This repository also comes with a
+
+<package.json> file that makes it easy to set up a pre-commit hook that enforces code formatting and linting by running Prettier and ESLint every time you <code>git commit</code> changes.</package.json>
 
 To set up the formatting and linting pre-commit hook:
 
 1. Install [Node.js](https://nodejs.org) if you haven't already done so
 2. Run `npm install` in your project's root folder to install the ESLint and Prettier modules (Note: Mac users should verify that Xcode command line tools are installed before running this command.)
 
-Prettier and ESLint will now run automatically every time you commit changes. The commit will fail if linting errors are detected. You can also run the formatting and linting from the command line using the following commands (check out <package.json> for the full list):
+Prettier and ESLint will now run automatically every time you commit changes. The commit will fail if linting errors are detected. You can also run the formatting and linting from the command line using the following commands (check out
+
+<package.json> for the full list):</package.json>
 
 ```
 npm run lint:lwc
@@ -168,9 +161,9 @@ npm run prettier
 
 To explore how Pure Aloe uses Platform Events to integrate with external systems, download and configure the [Pure Aloe distributor app](https://github.com/trailheadapps/purealoe-distributor).
 
-When you create a Product Bundle in Salesforce and change its status to **Submitted to Distributors**, the **Bundle Submitted** process automatically publishes the **Bundle_Submitted\__e** platform event. The distributor app is listening for that event and automatically adds the product bundle to the bundle list when a **Bundle_Submitted\__e** event comes in.
+When you create a Product Bundle in Salesforce and change its status to **Submitted to Distributors**, the **Bundle Submitted** process automatically publishes the **Bundle_Submitted__e** platform event. The distributor app is listening for that event and automatically adds the product bundle to the bundle list when a **Bundle_Submitted__e** event comes in.
 
-When you click the **Order** button next to a bundle in the distributor app, the distributor app publishes a **Bundle_Ordered\__e** event. The **Bundle Ordered** process (in Process Builder) listens for that event and automatically changes the order status to **Ordered by Distributor** when an event comes in. If a user is looking at the record details page for that bundle, the status will automatically change (no page refresh required) because the status path component is using the Streaming API to listen for status changes. For this last part to work, you need to execute the following Salesforce DX command to create the Streaming API topic:
+When you click the **Order** button next to a bundle in the distributor app, the distributor app publishes a **Bundle_Ordered__e** event. The **Bundle Ordered** process (in Process Builder) listens for that event and automatically changes the order status to **Ordered by Distributor** when an event comes in. If a user is looking at the record details page for that bundle, the status will automatically change (no page refresh required) because the status path component is using the Streaming API to listen for status changes. For this last part to work, you need to execute the following Salesforce DX command to create the Streaming API topic:
 
 ```
 sfdx force:apex:execute -f ./apex/createPushTopic.apex
