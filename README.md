@@ -53,45 +53,45 @@ There are two ways to install Pure Aloe:
 
 3. Clone the purealoe repository:
 
-```
-git clone https://github.com/trailheadapps/purealoe-lwc
-cd purealoe-lwc
-```
+  ```
+  git clone https://github.com/trailheadapps/purealoe-lwc
+  cd purealoe-lwc
+  ```
 
-1. Create a scratch org and provide it with an alias (**purealoe** in the command below):
+4. Create a scratch org and provide it with an alias (**purealoe** in the command below):
 
-```
-sfdx force:org:create -s -f config/project-scratch-def.json -a purealoe
-```
+  ```
+  sfdx force:org:create -s -f config/project-scratch-def.json -a purealoe
+  ```
 
-1. Push the app to your scratch org:
+5. Push the app to your scratch org:
 
-```
-sfdx force:source:push
-```
+  ```
+  sfdx force:source:push
+  ```
 
-1. Assign the purealoe permission set to the default user:
+6. Assign the purealoe permission set to the default user:
 
-```
-sfdx force:user:permset:assign -n purealoe
-```
+  ```
+  sfdx force:user:permset:assign -n purealoe
+  ```
 
-1. Load sample data:
+7. Load sample data:
 
-```
-sfdx force:data:tree:import --plan ./data/Harvest_Field__c-plan.json
-sfdx force:data:tree:import --plan ./data/Merchandise__c-plan.json
-```
+  ```
+  sfdx force:data:tree:import --plan ./data/Harvest_Field__c-plan.json
+  sfdx force:data:tree:import --plan ./data/Merchandise__c-plan.json
+  ```
 
-1. Open the scratch org:
+8. Open the scratch org:
 
-```
-sfdx force:org:open
-```
+  ```
+  sfdx force:org:open
+  ```
 
-1. In **App Launcher**, select the **Pure Aloe** app
+9. In **App Launcher**, select the **Pure Aloe** app
 
-2. Have fun exploring!
+10. Have fun exploring!
 
 ### Installing Pure Aloe using an unlocked package
 
