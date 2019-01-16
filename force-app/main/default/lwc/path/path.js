@@ -15,7 +15,7 @@ export default class Path extends LightningElement {
         this.stepsPrivate = value.map(val => {
             return {
                 value: val,
-                cssClass: '',
+                cssClass: ''
             };
         });
         this.calculateStepIndex();
@@ -42,8 +42,8 @@ export default class Path extends LightningElement {
                     (index < stepIndex
                         ? 'slds-is-complete'
                         : index === stepIndex
-                        ? 'slds-is-current'
-                        : 'slds-is-incomplete');
+                            ? 'slds-is-current'
+                            : 'slds-is-incomplete');
             });
         }
     }
@@ -51,7 +51,7 @@ export default class Path extends LightningElement {
     handleStepClicked(event) {
         this._currentStep = event.currentTarget.dataset.step;
         const eventStep = new CustomEvent('stepchange', {
-            detail: { step: this._currentStep },
+            detail: { step: this._currentStep }
         });
         this.dispatchEvent(eventStep);
     }

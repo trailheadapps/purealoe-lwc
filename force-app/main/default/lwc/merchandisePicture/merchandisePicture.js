@@ -11,7 +11,7 @@ export default class MerchandisePicture extends LightningElement {
 
     @wire(getRecord, {
         recordId: '$recordId',
-        fields,
+        fields
     })
     record;
 

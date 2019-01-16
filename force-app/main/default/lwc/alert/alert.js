@@ -9,7 +9,7 @@ export default class Alert extends LightningElement {
 
     @wire(getRecord, {
         recordId: '$recordId',
-        fields,
+        fields
     })
     record;
 
