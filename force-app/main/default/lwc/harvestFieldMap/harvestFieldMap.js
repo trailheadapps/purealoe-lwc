@@ -13,7 +13,7 @@ const fields = [
     FIELD_NAME,
     FIELD_STATUS,
     FIELD_MAP_ID,
-    FIELD_IRRIGATION,
+    FIELD_IRRIGATION
 ];
 
 export default class HarvestFieldMap extends LightningElement {
@@ -33,12 +33,11 @@ export default class HarvestFieldMap extends LightningElement {
     @track selectedFields = [];
     @track selectedRecords = [];
 
-    @wire(CurrentPageReference)
-    pageRef;
+    @wire(CurrentPageReference) pageRef;
 
     @wire(getRecord, {
         recordId: '$recordId',
-        fields,
+        fields
     })
     selectedRecord({ error, data }) {
         if (error) {
@@ -105,7 +104,7 @@ export default class HarvestFieldMap extends LightningElement {
                         fireEvent(
                             this.pageRef,
                             'purealoe__fieldselected',
-                            selectedRecord.Id,
+                            selectedRecord.Id
                         );
                     }
                 }
@@ -152,7 +151,7 @@ export default class HarvestFieldMap extends LightningElement {
 
     handleRecordUpdated(record) {
         const dropEl = this.template.querySelector(
-            '.drop' + getFieldValue(record, FIELD_MAP_ID),
+            '.drop' + getFieldValue(record, FIELD_MAP_ID)
         );
         if (dropEl) {
             dropEl.style.display = getFieldValue(record, FIELD_IRRIGATION)
@@ -201,7 +200,7 @@ export default class HarvestFieldMap extends LightningElement {
         let labelEl;
         for (let i = 0; i < harvestFields.length; i++) {
             fieldEl = this.template.querySelector(
-                '.field' + harvestFields[i].Map_Id__c,
+                '.field' + harvestFields[i].Map_Id__c
             );
             if (fieldEl) {
                 let color = '#719344';
@@ -213,7 +212,7 @@ export default class HarvestFieldMap extends LightningElement {
                 fieldEl.style.fill = color;
             }
             dropEl = this.template.querySelector(
-                '.drop' + harvestFields[i].Map_Id__c,
+                '.drop' + harvestFields[i].Map_Id__c
             );
             if (dropEl) {
                 dropEl.style.display = harvestFields[i].Irrigation__c
@@ -221,7 +220,7 @@ export default class HarvestFieldMap extends LightningElement {
                     : 'none';
             }
             labelEl = this.template.querySelector(
-                '.label' + harvestFields[i].Map_Id__c,
+                '.label' + harvestFields[i].Map_Id__c
             );
             if (labelEl) {
                 labelEl.childNodes[0].textContent = harvestFields[i].Name;

@@ -5,7 +5,7 @@ import {
     getRecord,
     updateRecord,
     generateRecordInputForUpdate,
-    getFieldValue,
+    getFieldValue
 } from 'lightning/uiRecordApi';
 import { CurrentPageReference } from 'lightning/navigation';
 import { registerListener, unregisterAllListeners } from 'c/pubsub';
@@ -29,7 +29,7 @@ const fields = [
     FIELD_YIELD,
     FIELD_MAP_ID,
     FIELD_IRRIGATION,
-    FIELD_PICTURE_URL,
+    FIELD_PICTURE_URL
 ];
 
 export default class HarvestField extends NavigationMixin(LightningElement) {
@@ -38,12 +38,11 @@ export default class HarvestField extends NavigationMixin(LightningElement) {
     @track imageStatus;
     @track recordId;
 
-    @wire(CurrentPageReference)
-    pageRef;
+    @wire(CurrentPageReference) pageRef;
 
     @wire(getRecord, {
         recordId: '$recordId',
-        fields,
+        fields
     })
     wiredRecord({ error, data }) {
         if (error) {
@@ -62,29 +61,29 @@ export default class HarvestField extends NavigationMixin(LightningElement) {
     _harvestColumns = [
         { label: 'Date', fieldName: 'harvestDate', type: 'text' },
         { label: 'Qty', fieldName: 'qty', type: 'text' },
-        { label: 'Supervisor', fieldName: 'supervisor', type: 'text' },
+        { label: 'Supervisor', fieldName: 'supervisor', type: 'text' }
     ];
     _harvests = [
         { harvestDate: '09/09/2017', qty: '354 lbs', supervisor: 'Nelson' },
         { harvestDate: '08/05/2017', qty: '301 lbs', supervisor: 'Nelson' },
         { harvestDate: '09/10/2016', qty: '299 lbs', supervisor: 'Nelson' },
-        { harvestDate: '09/09/2015', qty: '354 lbs', supervisor: 'Nelson' },
+        { harvestDate: '09/09/2015', qty: '354 lbs', supervisor: 'Nelson' }
     ];
     _irrigationColumns = [
         { label: 'When', fieldName: 'when', type: 'text' },
         { label: 'Duration', fieldName: 'duration', type: 'text' },
-        { label: 'Volume', fieldName: 'volume', type: 'text' },
+        { label: 'Volume', fieldName: 'volume', type: 'text' }
     ];
     _irrigationHistory = [
         { when: '12 hours ago', duration: '60 minutes', volume: '10 liters' },
-        { when: '18 hours ago', duration: '30 minutes', volume: '5 liters' },
+        { when: '18 hours ago', duration: '30 minutes', volume: '5 liters' }
     ];
 
     connectedCallback() {
         registerListener(
             'purealoe__fieldselected',
             this.handleRecordChanged,
-            this,
+            this
         );
     }
 
@@ -156,8 +155,8 @@ export default class HarvestField extends NavigationMixin(LightningElement) {
                     new ShowToastEvent({
                         title: 'Error on data save',
                         message: error.message.body,
-                        variant: 'error',
-                    }),
+                        variant: 'error'
+                    })
                 );
             });
     }
@@ -167,8 +166,8 @@ export default class HarvestField extends NavigationMixin(LightningElement) {
             type: 'standard__recordPage',
             attributes: {
                 actionName: 'view',
-                recordId: this.recordId,
-            },
+                recordId: this.recordId
+            }
         });
     }
 

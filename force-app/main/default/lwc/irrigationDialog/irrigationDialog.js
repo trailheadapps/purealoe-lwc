@@ -14,7 +14,7 @@ export default class IrrigationDialog extends LightningElement {
         fields.forEach(field => {
             options.push({
                 value: field.Id,
-                label: field.Name,
+                label: field.Name
             });
         });
 
@@ -38,18 +38,18 @@ export default class IrrigationDialog extends LightningElement {
             if (selectedIds.indexOf(harvestField.Id) > -1) {
                 fields.push({
                     id: harvestField.Id,
-                    irrigation: true,
+                    irrigation: true
                 });
             } else {
                 fields.push({
                     id: harvestField.Id,
-                    irrigation: false,
+                    irrigation: false
                 });
             }
         });
 
         const event = new CustomEvent('submit', {
-            detail: fields,
+            detail: fields
         });
         this.dispatchEvent(event);
     }

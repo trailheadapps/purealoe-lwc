@@ -3,7 +3,7 @@ import { loadScript } from 'lightning/platformResourceLoader';
 import {
     createRecord,
     updateRecord,
-    deleteRecord,
+    deleteRecord
 } from 'lightning/uiRecordApi';
 import BUNDLE_ITEM_OBJECT from '@salesforce/schema/Bundle_Item__c';
 import COUNT_UP from '@salesforce/resourceUrl/countup';
@@ -32,7 +32,7 @@ export default class Bundle extends LightningElement {
                     price: item.Merchandise__r.Price__c,
                     category: item.Merchandise__r.Category__c,
                     pictureURL: item.Merchandise__r.Picture_URL__c,
-                    qty: item.Qty__c,
+                    qty: item.Qty__c
                 };
             });
             this.calculateBundle();
@@ -74,7 +74,7 @@ export default class Bundle extends LightningElement {
         event.preventDefault();
         this.template.querySelector('.drop-zone').classList.remove('active');
         const merchandise = JSON.parse(
-            event.dataTransfer.getData('merchandise'),
+            event.dataTransfer.getData('merchandise')
         );
         const bundleItem = {
             bundleId: this.recordId,
@@ -84,7 +84,7 @@ export default class Bundle extends LightningElement {
             title: merchandise.Title__c,
             price: merchandise.Price__c,
             category: merchandise.Category__c,
-            pictureURL: merchandise.Picture_URL__c,
+            pictureURL: merchandise.Picture_URL__c
         };
         this.addItem(bundleItem);
     }
@@ -118,8 +118,8 @@ export default class Bundle extends LightningElement {
             fields: {
                 Bundle__c: bundleItem.bundleId,
                 Merchandise__c: bundleItem.merchandiseId,
-                Qty__c: bundleItem.qty,
-            },
+                Qty__c: bundleItem.qty
+            }
         };
         createRecord(recordInput)
             .then(result => {
@@ -153,8 +153,8 @@ export default class Bundle extends LightningElement {
         let record = {
             fields: {
                 Id: this._bundleItem.id,
-                Qty__c: this._bundleItem.qty,
-            },
+                Qty__c: this._bundleItem.qty
+            }
         };
         updateRecord(record)
             .then(() => {

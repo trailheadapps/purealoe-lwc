@@ -17,14 +17,14 @@ export default class BundleTile extends NavigationMixin(LightningElement) {
             type: 'standard__recordPage',
             attributes: {
                 actionName: 'view',
-                recordId: this.bundleItem.merchandiseId,
-            },
+                recordId: this.bundleItem.merchandiseId
+            }
         });
     }
 
     handleDelete() {
         const deleteEvent = new CustomEvent('delete', {
-            detail: { id: this._bundleItem.id },
+            detail: { id: this._bundleItem.id }
         });
         this.dispatchEvent(deleteEvent);
     }
@@ -37,8 +37,8 @@ export default class BundleTile extends NavigationMixin(LightningElement) {
                 detail: {
                     id: this._bundleItem.id,
                     qty: this._bundleItem.qty,
-                    price: this._bundleItem.price,
-                },
+                    price: this._bundleItem.price
+                }
             });
             this.dispatchEvent(changeEvent);
         }

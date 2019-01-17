@@ -11,7 +11,7 @@ const fields = [
     FIELD_NAME,
     FIELD_STATUS,
     FIELD_IRRIGATION,
-    FIELD_IRRIGATION_OVERRIDES,
+    FIELD_IRRIGATION_OVERRIDES
 ];
 
 export default class IrrigationManager extends LightningElement {
@@ -25,20 +25,20 @@ export default class IrrigationManager extends LightningElement {
 
     @wire(getRecord, {
         recordId: '$ldsRecId',
-        fields,
+        fields
     })
     harvestRecord;
 
     handleStartTimeChange(event) {
         const changeEvent = new CustomEvent('flowdatachanged', {
-            detail: { startTime: event.target.value },
+            detail: { startTime: event.target.value }
         });
         this.dispatchEvent(changeEvent);
     }
 
     handleDurationChange(event) {
         const changeEvent = new CustomEvent('flowdatachanged', {
-            detail: { duration: event.target.value },
+            detail: { duration: event.target.value }
         });
         this.dispatchEvent(changeEvent);
     }
@@ -46,7 +46,7 @@ export default class IrrigationManager extends LightningElement {
     handleMessageChange(event) {
         this.messageText = event.target.value;
         const changeEvent = new CustomEvent('flowdatachanged', {
-            detail: { addedMsgText: event.target.value },
+            detail: { addedMsgText: event.target.value }
         });
         this.dispatchEvent(changeEvent);
     }

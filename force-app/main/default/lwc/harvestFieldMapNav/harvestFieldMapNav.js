@@ -19,11 +19,11 @@ const fields = [
     FIELD_STATUS,
     FIELD_YIELD,
     FIELD_MAP_ID,
-    FIELD_IRRIGATION,
+    FIELD_IRRIGATION
 ];
 
 export default class HarvestFieldMapNav extends NavigationMixin(
-    LightningElement,
+    LightningElement
 ) {
     @api recordId;
     @track error;
@@ -32,7 +32,7 @@ export default class HarvestFieldMapNav extends NavigationMixin(
 
     @wire(getRecord, {
         recordId: '$recordId',
-        fields,
+        fields
     })
     wiredRecord({ error, data }) {
         if (error) {
@@ -43,8 +43,7 @@ export default class HarvestFieldMapNav extends NavigationMixin(
         }
     }
 
-    @wire(getHarvestFields)
-    wiredHarvestFields;
+    @wire(getHarvestFields) wiredHarvestFields;
 
     handleMapClicked(event) {
         const fieldId = event.target.classList.value;
@@ -56,8 +55,8 @@ export default class HarvestFieldMapNav extends NavigationMixin(
                         type: 'standard__recordPage',
                         attributes: {
                             actionName: 'view',
-                            recordId: field.Id,
-                        },
+                            recordId: field.Id
+                        }
                     });
                 }
             });
@@ -67,7 +66,7 @@ export default class HarvestFieldMapNav extends NavigationMixin(
     renderField() {
         const field = this.harvestField;
         const fieldEl = this.template.querySelector(
-            '.field' + getFieldValue(field, FIELD_MAP_ID),
+            '.field' + getFieldValue(field, FIELD_MAP_ID)
         );
         if (fieldEl) {
             let color = '#719344';
@@ -79,7 +78,7 @@ export default class HarvestFieldMapNav extends NavigationMixin(
             fieldEl.style.fill = color;
         }
         const dropEl = this.template.querySelector(
-            '.drop' + getFieldValue(field, FIELD_MAP_ID),
+            '.drop' + getFieldValue(field, FIELD_MAP_ID)
         );
         if (dropEl) {
             dropEl.style.display = getFieldValue(field, FIELD_IRRIGATION)

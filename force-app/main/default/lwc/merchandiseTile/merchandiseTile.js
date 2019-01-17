@@ -10,15 +10,15 @@ export default class MerchandiseTile extends NavigationMixin(LightningElement) {
             type: 'standard__recordPage',
             attributes: {
                 actionName: 'view',
-                recordId: this.merchandise.Id,
-            },
+                recordId: this.merchandise.Id
+            }
         });
     }
 
     handleDragStarted(event) {
         event.dataTransfer.setData(
             'merchandise',
-            JSON.stringify(this.merchandise),
+            JSON.stringify(this.merchandise)
         );
     }
 }

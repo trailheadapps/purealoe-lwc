@@ -5,7 +5,7 @@ import { fireEvent, unregisterAllListeners } from 'c/pubsub';
 import getHarvestFields from '@salesforce/apex/HarvestFieldController.getHarvestFields';
 
 export default class HarvestFieldList extends NavigationMixin(
-    LightningElement,
+    LightningElement
 ) {
     @api empMessage;
     @track error;
@@ -22,18 +22,17 @@ export default class HarvestFieldList extends NavigationMixin(
             label: 'Irrigation',
             fieldName: 'Irrigation__c',
             type: 'number',
-            sortable: true,
+            sortable: true
         },
         {
             label: 'Status',
             fieldName: 'Status__c',
             type: 'text',
-            sortable: true,
-        },
+            sortable: true
+        }
     ];
 
-    @wire(CurrentPageReference)
-    pageRef;
+    @wire(CurrentPageReference) pageRef;
 
     @wire(getHarvestFields)
     apexHarvestFields({ error, data }) {
@@ -51,7 +50,7 @@ export default class HarvestFieldList extends NavigationMixin(
                 map[field.Crop__c].push({
                     label: field.Name,
                     name: field.Id,
-                    expanded: false,
+                    expanded: false
                 });
             });
 
@@ -59,7 +58,7 @@ export default class HarvestFieldList extends NavigationMixin(
                 items.push({
                     label: key,
                     expanded: false,
-                    items: map[key],
+                    items: map[key]
                 });
             });
 

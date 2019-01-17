@@ -4,16 +4,17 @@ import getMerchandise from '@salesforce/apex/MerchandiseController.getMerchandis
 
 export default class MerchandiseList extends LightningElement {
     @api pageSize;
-    @track filterObjectStringified = JSON.stringify({
+    @track
+    filterObjectStringified = JSON.stringify({
         searchKey: '',
-        category: '',
+        category: ''
     });
     @track page = 1;
 
     @wire(getMerchandise, {
         filters: '$filterObjectStringified',
         pageSize: '$pageSize',
-        pageNumber: '$page',
+        pageNumber: '$page'
     })
     merchandises;
 
