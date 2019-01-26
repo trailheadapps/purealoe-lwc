@@ -1,6 +1,7 @@
 import { LightningElement, track, wire } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { NavigationMixin } from 'lightning/navigation';
+import { reduceErrors } from 'c/ldsUtils';
 import {
     getRecord,
     updateRecord,
@@ -154,7 +155,7 @@ export default class HarvestField extends NavigationMixin(LightningElement) {
                 this.dispatchEvent(
                     new ShowToastEvent({
                         title: 'Error on data save',
-                        message: error.message.body,
+                        message: reduceErrors(error).join(', '),
                         variant: 'error'
                     })
                 );
