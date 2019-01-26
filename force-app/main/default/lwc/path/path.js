@@ -42,8 +42,8 @@ export default class Path extends LightningElement {
                     (index < stepIndex
                         ? 'slds-is-complete'
                         : index === stepIndex
-                            ? 'slds-is-current'
-                            : 'slds-is-incomplete');
+                        ? 'slds-is-current'
+                        : 'slds-is-incomplete');
             });
         }
     }

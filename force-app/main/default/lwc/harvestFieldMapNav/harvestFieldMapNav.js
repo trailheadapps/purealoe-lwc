@@ -37,8 +37,10 @@ export default class HarvestFieldMapNav extends NavigationMixin(
     wiredRecord({ error, data }) {
         if (error) {
             this.error = error;
+            this.harvestField = undefined;
         } else if (data) {
             this.harvestField = data;
+            this.error = undefined;
             this.resetMap();
         }
     }

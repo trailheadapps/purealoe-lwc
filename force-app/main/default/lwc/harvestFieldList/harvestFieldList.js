@@ -38,6 +38,8 @@ export default class HarvestFieldList extends NavigationMixin(
     apexHarvestFields({ error, data }) {
         if (error) {
             this.error = error;
+            this.treeData = undefined;
+            this.tableData = undefined;
         } else if (data) {
             this.error = undefined;
             this.tableData = data;
