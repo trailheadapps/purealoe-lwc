@@ -1,13 +1,13 @@
 lightning-input {
     width: 60px;
     padding: 6px;
-    height:20px;
-    line-height:18px;
+    height: 20px;
+    line-height: 18px;
     margin-right: 4px;
 }
 
 a {
-	color: inherit;
+    color: inherit;
 }
 
 img.product {
@@ -29,13 +29,13 @@ img.product {
 }
 
 .price {
-    color: #6CB239;
+    color: #6cb239;
     margin-right: 8px;
 }
 
 .slds-form-element {
-	display: inline-block;
-	margin: 0 4px;
+    display: inline-block;
+    margin: 0 4px;
 }
 
 .outer {
@@ -44,17 +44,16 @@ img.product {
     color: inherit;
     text-decoration: none !important;
     border: solid 2px transparent;
-
 }
 
 .outer :hover {
-    border-color: #6CB239;
+    border-color: #6cb239;
 }
 
 .toggle {
-	display: none;
+    display: none;
 }
 
 :host(:hover) .toggle {
-	display: inline;
+    display: inline;
 }
