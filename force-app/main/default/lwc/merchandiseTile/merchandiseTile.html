@@ -1,20 +1,39 @@
 <template>
-
-    <div draggable="true" ondragstart={handleDragStarted} class="slds-p-left_small border">
+    <div
+        draggable="true"
+        ondragstart={handleDragStarted}
+        class="slds-p-left_small border"
+    >
         <lightning-layout vertical-align="center">
             <lightning-layout-item>
-                <lightning-icon icon-name="utility:rows" size="x-small"></lightning-icon>
+                <lightning-icon
+                    icon-name="utility:rows"
+                    size="x-small"
+                ></lightning-icon>
             </lightning-layout-item>
             <lightning-layout-item padding="around-small">
-                <img src={merchandise.Picture_URL__c} class="merchandise" alt="Product picture">
+                <img
+                    src={merchandise.Picture_URL__c}
+                    class="merchandise"
+                    alt="Product picture"
+                />
             </lightning-layout-item>
             <lightning-layout-item flexibility="grow">
-                <div class="title slds-truncate"><a href="" onclick={handleTitleClicked}>{merchandise.Title__c}</a></div>
-                <div>MSRP: <span class="price">
-                        <lightning-formatted-number value={merchandise.Price__c} format-style="currency"></lightning-formatted-number>
-                    </span></div>
+                <div class="title slds-truncate">
+                    <a href="" onclick={handleTitleClicked}
+                        >{merchandise.Title__c}</a
+                    >
+                </div>
+                <div>
+                    MSRP:
+                    <span class="price">
+                        <lightning-formatted-number
+                            value={merchandise.Price__c}
+                            format-style="currency"
+                        ></lightning-formatted-number>
+                    </span>
+                </div>
             </lightning-layout-item>
         </lightning-layout>
     </div>
-
 </template>
