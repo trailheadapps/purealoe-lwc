@@ -22,7 +22,9 @@ export default class Bundle extends LightningElement {
     apexBundleItems({ error, data }) {
         if (error) {
             this.error = error;
+            this.bundleItems = undefined;
         } else if (data) {
+            this.error = undefined;
             this.bundleItems = data.map(item => {
                 return {
                     id: item.Id,

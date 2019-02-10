@@ -48,6 +48,7 @@ export default class HarvestField extends NavigationMixin(LightningElement) {
     wiredRecord({ error, data }) {
         if (error) {
             this.error = error;
+            this.harvestField = undefined;
         } else if (data) {
             this.error = undefined;
             this.imageStatus =
