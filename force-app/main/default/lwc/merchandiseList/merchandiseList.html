@@ -1,14 +1,20 @@
 <template>
-
     <lightning-card>
         <h1 slot="title">
-            <img src={imageAloe} class="icon" alt="Aloe image"> Merchandise List
+            <img src={imageAloe} class="icon" alt="Aloe image" /> Merchandise
+            List
         </h1>
 
         <template if:true={merchandises.data}>
             <div slot="actions">
-                <c-paginator page={page} pages={merchandises.data.pages} total={merchandises.data.total} label="products" onpreviouspage={handlePagePrevious}
-                    onnextpage={handlePageNext}></c-paginator>
+                <c-paginator
+                    page={page}
+                    pages={merchandises.data.pages}
+                    total={merchandises.data.total}
+                    label="products"
+                    onpreviouspage={handlePagePrevious}
+                    onnextpage={handlePageNext}
+                ></c-paginator>
             </div>
 
             <template for:each={merchandises.data.items} for:item="item">
@@ -20,7 +26,5 @@
         <template if:true={merchandises.error}>
             <c-error-panel errors={merchandises.error}></c-error-panel>
         </template>
-
     </lightning-card>
-
 </template>

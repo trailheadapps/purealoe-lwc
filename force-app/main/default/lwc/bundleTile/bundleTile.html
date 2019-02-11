@@ -1,19 +1,40 @@
 <template>
-
     <div class="outer">
-        <img src={bundleItem.pictureURL} class="product" alt="Product picture">
-        <span class="title"><a href="" onclick={handleTitleClick}>{bundleItem.title}</a></span>
+        <img
+            src={bundleItem.pictureURL}
+            class="product"
+            alt="Product picture"
+        />
+        <span class="title"
+            ><a href="" onclick={handleTitleClick}>{bundleItem.title}</a></span
+        >
         <lightning-layout vertical-align="center">
             <lightning-layout-item>
-               MSRP:
-               <span class="price">
-                    <lightning-formatted-number value={bundleItem.price} format-style="currency"></lightning-formatted-number></span>
+                MSRP:
+                <span class="price">
+                    <lightning-formatted-number
+                        value={bundleItem.price}
+                        format-style="currency"
+                    ></lightning-formatted-number
+                ></span>
             </lightning-layout-item>
             <lightning-layout-item>
-                <lightning-input type="number" name="qty" label="Qty" value={bundleItem.qty} step="1" onchange={handleQtyChange}></lightning-input>
-                <lightning-button-icon icon-name="utility:delete" variant="bare" size="medium" class="toggle" onclick={handleDelete}></lightning-button-icon>
+                <lightning-input
+                    type="number"
+                    name="qty"
+                    label="Qty"
+                    value={bundleItem.qty}
+                    step="1"
+                    onchange={handleQtyChange}
+                ></lightning-input>
+                <lightning-button-icon
+                    icon-name="utility:delete"
+                    variant="bare"
+                    size="medium"
+                    class="toggle"
+                    onclick={handleDelete}
+                ></lightning-button-icon>
             </lightning-layout-item>
         </lightning-layout>
     </div>
-
 </template>

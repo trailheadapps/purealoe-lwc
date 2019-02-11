@@ -23,7 +23,9 @@
         var bundle = component.get('v.record');
         if (bundle) {
             bundle.Status__c = event.getParam('step');
-            component.find('bundleRecord').saveRecord($A.getCallback(function(saveResult) {}));
+            component
+                .find('bundleRecord')
+                .saveRecord($A.getCallback(function(saveResult) {}));
         }
     },
 
@@ -35,5 +37,5 @@
             component.find('bundleRecord').reloadRecord();
             component.find('accountService').reloadRecord();
         }
-    },
+    }
 });

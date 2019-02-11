@@ -1,10 +1,10 @@
 # Pure Aloe Lightning Web Components Sample Application
 
+[![CircleCI](https://circleci.com/gh/trailheadapps/purealoe-lwc.svg?style=svg)](https://circleci.com/gh/trailheadapps/purealoe-lwc)
+
 > IMPORTANT: This is the new Lightning Web Components version of the Pure Aloe sample application. If you are looking for the Aura version, click [here](https://github.com/trailheadapps/purealoe).
 
 ![purealoe-logo](purealoe-logo.png)
-
-[![CircleCI](https://circleci.com/gh/trailheadapps/purealoe-lwc.svg?style=svg)](https://circleci.com/gh/trailheadapps/purealoe-lwc)
 
 Pure Aloe is a fictional agricultural and manufacturing company that grows aloe and produces soaps and lotions for distributors and consumers. This app helps manage crops and harvests, as well as product distribution. Platform Events are used to update [external distributor systems](https://github.com/trailheadapps/purealoe-distributor) about stock, and publish updates from those systems in Salesforce.
 
@@ -36,18 +36,16 @@ There are two ways to install Pure Aloe:
 
 ### Installing Pure Aloe using Salesforce DX
 
-> **IMPORTANT**: Because of a current issue in pre-release, make sure your project path doesn't include any of the following folder names: **lwc**, **aura**, **wave**. For example, DO NOT clone this repository in a folder called **/Projects/lwc**.
-
 1. Set up your environment. Follow the steps in the [Quick Start: Lightning Web Components](https://trailhead.salesforce.com/content/learn/projects/quick-start-lightning-web-components/) Trailhead project. The steps include:
 
-  - Sign up for a Spring '19 pre-release org and enable Dev Hub functionality
-  - Install the pre-release version of the Salesforce CLI
+  - Enable Dev Hub in your Trailhead Playground
+  - Install Salesforce CLI
   - Install Visual Studio Code
   - Install the Visual Studio Code Salesforce extensions, including the Lightning Web Components extension
 
-2. Authenticate with your hub org (if not already done). The command below uses the `-a` flag to assign an alias that can be used in other commands:
+2. If you haven't already done so, authenticate with your hub org and provide it with an alias (**myhuborg** in the command below):
 
-  ```zsh
+  ```
   sfdx force:auth:web:login -d -a myhuborg
   ```
 
@@ -97,11 +95,11 @@ There are two ways to install Pure Aloe:
 
 Use this option if you don't have Salesforce DX configured or if you want to experience the sample app and do not plan to modify the code.
 
-1. [Sign up](https://www.salesforce.com/form/signup/prerelease-spring19/) for a Spring '19 pre-release org.
+1. [Sign up](https://developer.salesforce.com/signup) for a Developer Edition (DE) org.
 
 2. Enable MyDomain in your DE org. Instructions to do this are [here](https://trailhead.salesforce.com/modules/identity_login/units/identity_login_my_domain).
 
-3. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tB0000000YGzBIAW) to install the Pure Aloe unlocked package into your DE org. Approve the Third-Party access during the installation process.
+3. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tB0000000KAeuIAG) to install the Pure Aloe unlocked package into your DE org. Approve the Third-Party access during the installation process.
 
 4. Select **Install for All Users**
 
@@ -139,18 +137,14 @@ This repository contains several files that are relevant if you want to integrat
 
 ### Pre-commit hook
 
-This repository also comes with a
-
-<package.json> file that makes it easy to set up a pre-commit hook that enforces code formatting and linting by running Prettier and ESLint every time you <code>git commit</code> changes.</package.json>
+This repository also comes with a [package.json](./package.json) file that makes it easy to set up a pre-commit hook that enforces code formatting and linting by running Prettier and ESLint every time you `git commit` changes.
 
 To set up the formatting and linting pre-commit hook:
 
 1. Install [Node.js](https://nodejs.org) if you haven't already done so
 2. Run `npm install` in your project's root folder to install the ESLint and Prettier modules (Note: Mac users should verify that Xcode command line tools are installed before running this command.)
 
-Prettier and ESLint will now run automatically every time you commit changes. The commit will fail if linting errors are detected. You can also run the formatting and linting from the command line using the following commands (check out
-
-<package.json> for the full list):</package.json>
+Prettier and ESLint will now run automatically every time you commit changes. The commit will fail if linting errors are detected. You can also run the formatting and linting from the command line using the following commands (check out [package.json](./package.json) for the full list):
 
 ```
 npm run lint:lwc

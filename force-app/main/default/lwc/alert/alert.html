@@ -1,12 +1,18 @@
 <template>
     <template if:true={record.data}>
         <template if:true={isAlert}>
-            <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+            <div
+                class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error"
+                role="alert"
+            >
                 <h2>ALERT: Irrigation level below threshold</h2>
             </div>
         </template>
         <template if:true={isWarning}>
-            <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
+            <div
+                class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning"
+                role="alert"
+            >
                 <h2>WARNING: Irrigation level below threshold</h2>
             </div>
         </template>

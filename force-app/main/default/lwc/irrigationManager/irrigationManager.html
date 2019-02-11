@@ -1,20 +1,51 @@
 <template>
-
     <template if:true={harvestRecord.data}>
-        <lightning-card title="Adjust Field Irrigation" icon-name="standard:calibration">
+        <lightning-card
+            title="Adjust Field Irrigation"
+            icon-name="standard:calibration"
+        >
             <lightning-accordion active-section-name="settings">
-                <lightning-accordion-section name="settings" label="Irrigation Settings">
-                    <lightning-input class="slds-p-bottom_small" type="time" name="time" label="Start Time" value={startTime}
-                        required onchange={handleStartTimeChange}></lightning-input>
-                    <lightning-slider label="Duration (Minutes)" min="0" max="180" step="10" value={duration} onchange={handleDurationChange}></lightning-slider>
+                <lightning-accordion-section
+                    name="settings"
+                    label="Irrigation Settings"
+                >
+                    <lightning-input
+                        class="slds-p-bottom_small"
+                        type="time"
+                        name="time"
+                        label="Start Time"
+                        value={startTime}
+                        required
+                        onchange={handleStartTimeChange}
+                    ></lightning-input>
+                    <lightning-slider
+                        label="Duration (Minutes)"
+                        min="0"
+                        max="180"
+                        step="10"
+                        value={duration}
+                        onchange={handleDurationChange}
+                    ></lightning-slider>
                 </lightning-accordion-section>
-                <lightning-accordion-section name="alertMsg" label="Irrigation Alert Message">
-                    <lightning-input name="addedMsg" label="Additional text:" type="text" placeholder="(Optional)" onchange={handleMessageChange}
-                        ></lightning-input>
+                <lightning-accordion-section
+                    name="alertMsg"
+                    label="Irrigation Alert Message"
+                >
+                    <lightning-input
+                        name="addedMsg"
+                        label="Additional text:"
+                        type="text"
+                        placeholder="(Optional)"
+                        onchange={handleMessageChange}
+                    ></lightning-input>
                     <div class="slds-p-bottom_small"></div>
                     <div class="slds-form-element">
-                        <span class="slds-form-element__label">Message preview:</span>
-                        <div class="slds-form-element__control slds-border_bottom">
+                        <span class="slds-form-element__label"
+                            >Message preview:</span
+                        >
+                        <div
+                            class="slds-form-element__control slds-border_bottom"
+                        >
                             <div class="slds-form-element__static">
                                 <p>{defaultMsg} {messageText}</p>
                             </div>
@@ -28,5 +59,4 @@
     <template if:true={harvestRecord.error}>
         <c-error-panel errors={harvestRecord.error}></c-error-panel>
     </template>
-
 </template>

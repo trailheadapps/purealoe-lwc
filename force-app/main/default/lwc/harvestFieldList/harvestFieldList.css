@@ -1,9 +1,9 @@
 .content {
-    background-color: #FAFAF9;
+    background-color: #fafaf9;
     border-radius: 0.25rem;
     border: 1px solid rgb(221, 219, 218);
-    border-radius: .25rem;
-    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.10);
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -50,8 +50,8 @@ form {
 }
 
 .slds-button-group {
-    background: #FFFFFF;
-    border-radius: .25rem;
+    background: #ffffff;
+    border-radius: 0.25rem;
 }
 
 .slds-tree_container {

@@ -1,7 +1,7 @@
 @isTest
 public class SessionControllerTest {
 
-    static testMethod void testGetSessionId() {
+    @isTest static void testGetSessionId() {
         Boolean success = true;
         try {
             String sessionId = SessionController.getSessionId();
@@ -11,5 +11,5 @@ public class SessionControllerTest {
             System.assert(success);
         }
     }
-    
+
 }

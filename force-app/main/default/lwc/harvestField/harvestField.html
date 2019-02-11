@@ -2,10 +2,17 @@
     <template if:true={harvestField}>
         <article class="slds-card">
             <div class="slds-card__header slds-grid">
-                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <header
+                    class="slds-media slds-media_center slds-has-flexi-truncate"
+                >
                     <div class="slds-media__figure">
-                        <span class="slds-icon_container slds-icon-standard-account" title={harvestName}>
-                            <lightning-icon icon-name="custom:custom5"></lightning-icon>
+                        <span
+                            class="slds-icon_container slds-icon-standard-account"
+                            title={harvestName}
+                        >
+                            <lightning-icon
+                                icon-name="custom:custom5"
+                            ></lightning-icon>
                         </span>
                     </div>
                     <div class="slds-media__body">
@@ -14,25 +21,38 @@
                         </h2>
                     </div>
                     <div class="slds-no-flex">
-                        <lightning-button label="Details" onclick={handleNavigateToRecordHome}></lightning-button>
+                        <lightning-button
+                            label="Details"
+                            onclick={handleNavigateToRecordHome}
+                        ></lightning-button>
                     </div>
                 </header>
             </div>
-                <template if:true={isAlert}>
-                    <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
-                        <h2>ALERT: Irrigation level below threshold</h2>
-                    </div>
-                </template>
+            <template if:true={isAlert}>
+                <div
+                    class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error"
+                    role="alert"
+                >
+                    <h2>ALERT: Irrigation level below threshold</h2>
+                </div>
+            </template>
 
-                <template if:true={isWarning}>
-                    <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
-                        <h2>WARNING: Irrigation level below threshold</h2>
-                    </div>
-                </template>
-                <div class="slds-card__body slds-card__body_inner">
+            <template if:true={isWarning}>
+                <div
+                    class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning"
+                    role="alert"
+                >
+                    <h2>WARNING: Irrigation level below threshold</h2>
+                </div>
+            </template>
+            <div class="slds-card__body slds-card__body_inner">
                 <lightning-layout class="details">
                     <lightning-layout-item>
-                        <img src={harvestPicture} class="crop" alt="Field picture">
+                        <img
+                            src={harvestPicture}
+                            class="crop"
+                            alt="Field picture"
+                        />
                     </lightning-layout-item>
                     <lightning-layout-item>
                         <div class="form details">
@@ -49,7 +69,9 @@
                             <lightning-layout-item flexibility="grow">
                                 <div class="form">
                                     <div><label>Level:</label>19.8%</div>
-                                    <div><label>Status:</label>{harvestStatus}</div>
+                                    <div>
+                                        <label>Status:</label>{harvestStatus}
+                                    </div>
                                 </div>
                             </lightning-layout-item>
                             <lightning-layout-item>
@@ -75,11 +97,12 @@
                             key-field="id"
                         ></lightning-datatable>
                     </lightning-accordion-section>
-                    <lightning-accordion-section label="More Info"> </lightning-accordion-section>
+                    <lightning-accordion-section label="More Info">
+                    </lightning-accordion-section>
                 </lightning-accordion>
             </div>
             <footer class="slds-card__footer">
-                <img src={imageStatus} class="ground" alt="Status">
+                <img src={imageStatus} class="ground" alt="Status" />
             </footer>
         </article>
     </template>
@@ -87,7 +110,9 @@
     <template if:false={harvestField}>
         <article class="slds-card">
             <div class="slds-card__body slds-card__body_inner">
-                <div class="placeholder slds-text-heading_medium">Select a field to see details</div>
+                <div class="placeholder slds-text-heading_medium">
+                    Select a field to see details
+                </div>
             </div>
         </article>
     </template>
@@ -95,5 +120,4 @@
     <template if:true={error}>
         <c-error-panel errors={error}></c-error-panel>
     </template>
-
 </template>

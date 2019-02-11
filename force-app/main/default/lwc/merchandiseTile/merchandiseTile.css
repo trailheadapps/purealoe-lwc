@@ -5,7 +5,7 @@
 }
 
 a {
-	color: inherit;
+    color: inherit;
 }
 
 :active {
@@ -30,5 +30,5 @@ img {
 }
 
 .price {
-    color: #6CB239;
+    color: #6cb239;
 }

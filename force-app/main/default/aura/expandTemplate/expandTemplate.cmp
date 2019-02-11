@@ -1,15 +1,30 @@
-<aura:component implements="lightning:appHomeTemplate" description="Two columns layout with expandable main area" access="global">
-
-    <aura:attribute name="left" type="Aura.Component[]" access="global"/>
-    <aura:attribute name="right" type="Aura.Component[]" access="global"/>
-    <aura:attribute name="fullScreen" type="Boolean" default="false" access="global"/>
+<aura:component
+    implements="lightning:appHomeTemplate"
+    description="Two columns layout with expandable main area"
+    access="global"
+>
+    <aura:attribute name="left" type="Aura.Component[]" access="global" />
+    <aura:attribute name="right" type="Aura.Component[]" access="global" />
+    <aura:attribute
+        name="fullScreen"
+        type="Boolean"
+        default="false"
+        access="global"
+    />
 
     <div aura:id="container">
-
         <aura:if isTrue="{!v.fullScreen}">
-            <lightning:buttonIcon iconName="utility:contract" onclick="{!c.toggle}" class="toggle" />
+            <lightning:buttonIcon
+                iconName="utility:contract"
+                onclick="{!c.toggle}"
+                class="toggle"
+            />
             <aura:set attribute="else">
-                <lightning:buttonIcon iconName="utility:expand" onclick="{!c.toggle}" class="toggle" />
+                <lightning:buttonIcon
+                    iconName="utility:expand"
+                    onclick="{!c.toggle}"
+                    class="toggle"
+                />
             </aura:set>
         </aura:if>
 
@@ -21,7 +36,5 @@
                 {!v.right}
             </lightning:layoutItem>
         </lightning:layout>
-
     </div>
-
 </aura:component>
