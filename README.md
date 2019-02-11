@@ -1,10 +1,10 @@
 # Pure Aloe Lightning Web Components Sample Application
 
+[![CircleCI](https://circleci.com/gh/trailheadapps/purealoe-lwc.svg?style=svg)](https://circleci.com/gh/trailheadapps/purealoe-lwc)
+
 > IMPORTANT: This is the new Lightning Web Components version of the Pure Aloe sample application. If you are looking for the Aura version, click [here](https://github.com/trailheadapps/purealoe).
 
 ![purealoe-logo](purealoe-logo.png)
-
-[![CircleCI](https://circleci.com/gh/trailheadapps/purealoe-lwc.svg?style=svg)](https://circleci.com/gh/trailheadapps/purealoe-lwc)
 
 Pure Aloe is a fictional agricultural and manufacturing company that grows aloe and produces soaps and lotions for distributors and consumers. This app helps manage crops and harvests, as well as product distribution. Platform Events are used to update [external distributor systems](https://github.com/trailheadapps/purealoe-distributor) about stock, and publish updates from those systems in Salesforce.
 
