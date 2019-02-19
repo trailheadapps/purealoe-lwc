@@ -18,74 +18,74 @@ Find more details about Pure Aloe on the Salesforce Developer blog:
 
 ## Table of Contents
 
-- Installation
+-   Installation
 
-  - [Installing Pure Aloe using Salesforce DX](#installing-pure-aloe-using-salesforce-dx)
-  - [Installing Pure Aloe using an unlocked package](#installing-pure-aloe-using-an-unlocked-package)
+    -   [Installing Pure Aloe using Salesforce DX](#installing-pure-aloe-using-salesforce-dx)
+    -   [Installing Pure Aloe using an unlocked package](#installing-pure-aloe-using-an-unlocked-package)
 
-- [Optional installation instructions](#optional-installation-instructions)
+-   [Optional installation instructions](#optional-installation-instructions)
 
-- [Distributor App](#distributor-app)
+-   [Distributor App](#distributor-app)
 
 ## Installation
 
 There are two ways to install Pure Aloe:
 
-- [Using Salesforce DX](#installing-pure-aloe-using-salesforce-dx): This is the recommended installation option. Use this option if you are a developer who wants to experience the app and the code.
-- [Using an Unlocked Package](#installing-pure-aloe-using-an-unlocked-package): This option allows anybody to experience the sample app without installing a local development environment.
+-   [Using Salesforce DX](#installing-pure-aloe-using-salesforce-dx): This is the recommended installation option. Use this option if you are a developer who wants to experience the app and the code.
+-   [Using an Unlocked Package](#installing-pure-aloe-using-an-unlocked-package): This option allows anybody to experience the sample app without installing a local development environment.
 
 ### Installing Pure Aloe using Salesforce DX
 
 1. Set up your environment. Follow the steps in the [Quick Start: Lightning Web Components](https://trailhead.salesforce.com/content/learn/projects/quick-start-lightning-web-components/) Trailhead project. The steps include:
 
-  - Enable Dev Hub in your Trailhead Playground
-  - Install Salesforce CLI
-  - Install Visual Studio Code
-  - Install the Visual Studio Code Salesforce extensions, including the Lightning Web Components extension
+-   Enable Dev Hub in your Trailhead Playground
+-   Install Salesforce CLI
+-   Install Visual Studio Code
+-   Install the Visual Studio Code Salesforce extensions, including the Lightning Web Components extension
 
 2. If you haven't already done so, authenticate with your hub org and provide it with an alias (**myhuborg** in the command below):
 
-  ```
-  sfdx force:auth:web:login -d -a myhuborg
-  ```
+```
+sfdx force:auth:web:login -d -a myhuborg
+```
 
 3. Clone the purealoe repository:
 
-  ```
-  git clone https://github.com/trailheadapps/purealoe-lwc
-  cd purealoe-lwc
-  ```
+```
+git clone https://github.com/trailheadapps/purealoe-lwc
+cd purealoe-lwc
+```
 
 4. Create a scratch org and provide it with an alias (**purealoe** in the command below):
 
-  ```
-  sfdx force:org:create -s -f config/project-scratch-def.json -a purealoe
-  ```
+```
+sfdx force:org:create -s -f config/project-scratch-def.json -a purealoe
+```
 
 5. Push the app to your scratch org:
 
-  ```
-  sfdx force:source:push
-  ```
+```
+sfdx force:source:push
+```
 
 6. Assign the purealoe permission set to the default user:
 
-  ```
-  sfdx force:user:permset:assign -n purealoe
-  ```
+```
+sfdx force:user:permset:assign -n purealoe
+```
 
 7. Load sample data:
 
-  ```
-  sfdx force:data:tree:import --plan ./data/Harvest_Field__c-plan.json
-  sfdx force:data:tree:import --plan ./data/Merchandise__c-plan.json
-  ```
+```
+sfdx force:data:tree:import --plan ./data/Harvest_Field__c-plan.json
+sfdx force:data:tree:import --plan ./data/Merchandise__c-plan.json
+```
 
 8. Open the scratch org:
 
-  ```
-  sfdx force:org:open
-  ```
+```
+sfdx force:org:open
+```
 
 9. In **App Launcher**, select the **Pure Aloe** app
 
@@ -105,19 +105,19 @@ Use this option if you don't have Salesforce DX configured or if you want to exp
 
 5. Import Harvest Field data:
 
-  - In **Setup**, type **Data Import** in the Quick Find box and click **Data Import Wizard**.
-  - Click **Launch Wizard**.
-  - Click the **Custom objects** tab, click **Harvest Fields**, and click **Add new records**.
-  - Drag **Harvest_Field_Data.csv** from the data folder of this project to the upload area.
-  - Click **Next**, **Next**, and **Start Import**.
+-   In **Setup**, type **Data Import** in the Quick Find box and click **Data Import Wizard**.
+-   Click **Launch Wizard**.
+-   Click the **Custom objects** tab, click **Harvest Fields**, and click **Add new records**.
+-   Drag **Harvest_Field_Data.csv** from the data folder of this project to the upload area.
+-   Click **Next**, **Next**, and **Start Import**.
 
 6. Import Merchandise data:
 
-  - In **Setup**, type **Data Import** in the Quick Find box and click **Data Import Wizard**.
-  - Click **Launch Wizard**.
-  - Click the **Custom objects** tab, click **Merchandises**, and click **Add new records**.
-  - Drag **Merchandise_Data.csv** from the data folder of this project to the upload area.
-  - Click **Next**, **Next**, and **Start Import**.
+-   In **Setup**, type **Data Import** in the Quick Find box and click **Data Import Wizard**.
+-   Click **Launch Wizard**.
+-   Click the **Custom objects** tab, click **Merchandises**, and click **Add new records**.
+-   Drag **Merchandise_Data.csv** from the data folder of this project to the upload area.
+-   Click **Next**, **Next**, and **Start Import**.
 
 7. In **App Launcher**, select the **PureAloe** app
 
@@ -129,7 +129,7 @@ This repository contains several files that are relevant if you want to integrat
 
 ### Code formatting
 
-[Prettier](https://prettier.io "https://prettier.io/") is a code formatter used to ensure consistent formatting across your code base. To use Prettier with Visual Studio Code, install [this extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) from the Visual Studio Code Marketplace. The [.prettierignore](/.prettierignore) and [.prettierrc](/.prettierrc) files are provided as part of this repository to control the behavior of the Prettier formatter.
+[Prettier](https://prettier.io 'https://prettier.io/') is a code formatter used to ensure consistent formatting across your code base. To use Prettier with Visual Studio Code, install [this extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) from the Visual Studio Code Marketplace. The [.prettierignore](/.prettierignore) and [.prettierrc](/.prettierrc) files are provided as part of this repository to control the behavior of the Prettier formatter.
 
 ### Code linting
 
@@ -155,9 +155,9 @@ npm run prettier
 
 To explore how Pure Aloe uses Platform Events to integrate with external systems, download and configure the [Pure Aloe distributor app](https://github.com/trailheadapps/purealoe-distributor).
 
-When you create a Product Bundle in Salesforce and change its status to **Submitted to Distributors**, the **Bundle Submitted** process automatically publishes the **Bundle_Submitted__e** platform event. The distributor app is listening for that event and automatically adds the product bundle to the bundle list when a **Bundle_Submitted__e** event comes in.
+When you create a Product Bundle in Salesforce and change its status to **Submitted to Distributors**, the **Bundle Submitted** process automatically publishes the **Bundle_Submitted\_\_e** platform event. The distributor app is listening for that event and automatically adds the product bundle to the bundle list when a **Bundle_Submitted\_\_e** event comes in.
 
-When you click the **Order** button next to a bundle in the distributor app, the distributor app publishes a **Bundle_Ordered__e** event. The **Bundle Ordered** process (in Process Builder) listens for that event and automatically changes the order status to **Ordered by Distributor** when an event comes in. If a user is looking at the record details page for that bundle, the status will automatically change (no page refresh required) because the status path component is using the Streaming API to listen for status changes. For this last part to work, you need to execute the following Salesforce DX command to create the Streaming API topic:
+When you click the **Order** button next to a bundle in the distributor app, the distributor app publishes a **Bundle_Ordered\_\_e** event. The **Bundle Ordered** process (in Process Builder) listens for that event and automatically changes the order status to **Ordered by Distributor** when an event comes in. If a user is looking at the record details page for that bundle, the status will automatically change (no page refresh required) because the status path component is using the Streaming API to listen for status changes. For this last part to work, you need to execute the following Salesforce DX command to create the Streaming API topic:
 
 ```
 sfdx force:apex:execute -f ./apex/createPushTopic.apex
