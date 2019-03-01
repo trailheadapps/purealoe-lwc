@@ -3,8 +3,6 @@
         "sobject": "Harvest_Field__c",
         "saveRefs": true,
         "resolveRefs": false,
-        "files": [
-            "Harvest_Field__cs.json"
-        ]
+        "files": ["Harvest_Field__cs.json"]
     }
 ]
