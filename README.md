@@ -20,7 +20,7 @@ Find more details about Pure Aloe on the Salesforce Developer blog:
 
 -   Installation
 
-    -   [Installing Pure Aloe using Salesforce DX](#installing-pure-aloe-using-salesforce-dx)
+    -   [Installing Pure Aloe using a scratch org](#installing-pure-aloe-using-a-scratch-org)
     -   [Installing Pure Aloe using an unlocked package](#installing-pure-aloe-using-an-unlocked-package)
 
 -   [Optional installation instructions](#optional-installation-instructions)
@@ -31,10 +31,10 @@ Find more details about Pure Aloe on the Salesforce Developer blog:
 
 There are two ways to install Pure Aloe:
 
--   [Using Salesforce DX](#installing-pure-aloe-using-salesforce-dx): This is the recommended installation option. Use this option if you are a developer who wants to experience the app and the code.
+-   [Using a Scratch Org](#installing-pure-aloe-using-a-scratch-org): This is the recommended installation option. Use this option if you are a developer who wants to experience the app and the code.
 -   [Using an Unlocked Package](#installing-pure-aloe-using-an-unlocked-package): This option allows anybody to experience the sample app without installing a local development environment.
 
-### Installing Pure Aloe using Salesforce DX
+### Installing Pure Aloe using a Scratch Org
 
 1. Set up your environment. Follow the steps in the [Quick Start: Lightning Web Components](https://trailhead.salesforce.com/content/learn/projects/quick-start-lightning-web-components/) Trailhead project. The steps include:
 
@@ -93,7 +93,7 @@ sfdx force:org:open
 
 ### Installing Pure Aloe using an unlocked package
 
-Use this option if you don't have Salesforce DX configured or if you want to experience the sample app and do not plan to modify the code.
+Use this option if you don't have the Salesforce CLI configured or if you want to experience the sample app and do not plan to modify the code.
 
 1. [Sign up](https://developer.salesforce.com/signup) for a Developer Edition (DE) org.
 
