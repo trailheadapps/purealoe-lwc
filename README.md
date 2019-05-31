@@ -16,6 +16,8 @@ Find more details about Pure Aloe on the Salesforce Developer blog:
 
 [Spring 18 for Developers: Go With the Flow Like Never Before](https://developer.salesforce.com/blogs/2018/01/spring-18-for-developers-flow.html)
 
+> This sample application is designed to run on Salesforce Platform. If you want to experience Lightning Web Components on any platform, please visit https://lwc.dev, and try out our Lightning Web Components sample application [LWC Recipes OSS](https://github.com/trailheadapps/lwc-recipes-oss).
+
 ## Table of Contents
 
 -   Installation
