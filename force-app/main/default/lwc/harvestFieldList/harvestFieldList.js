@@ -1,13 +1,14 @@
-import { LightningElement, api, track, wire } from 'lwc';
+import { LightningElement, track, wire } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 import { CurrentPageReference } from 'lightning/navigation';
 import { fireEvent, unregisterAllListeners } from 'c/pubsub';
+import { subscribe, unsubscribe, onError } from 'lightning/empApi';
 import getHarvestFields from '@salesforce/apex/HarvestFieldController.getHarvestFields';
 
 export default class HarvestFieldList extends NavigationMixin(
     LightningElement
 ) {
-    @api empMessage;
+    @track empMessage;
     @track error;
     @track selectedItems = [];
     @track popup;
@@ -71,8 +72,27 @@ export default class HarvestFieldList extends NavigationMixin(
         }
     }
 
+    connectedCallback() {
+        // EMP API Error handling
+        onError(error => {
+            this.error = error;
+        });
+
+        subscribe('/event/Field_Status_Change__e', -1, message => {
+            this.empMessage = message;
+        });
+    }
+
     disconnectedCallback() {
+        // pubsub
         unregisterAllListeners(this);
+
+        // EMP API
+        if (this.subscription) {
+            unsubscribe(this.subscription, () => {
+                this.subscription = null;
+            });
+        }
     }
 
     get columns() {
