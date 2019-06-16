@@ -4,15 +4,15 @@
             "path": "force-app",
             "default": true,
             "package": "PureAloeLWC",
-            "versionNumber": "1.0.0.NEXT",
-            "versionName": "Spring '19"
+            "versionNumber": "2.0.0.NEXT",
+            "versionName": "Summer '19"
         }
     ],
     "namespace": "",
     "sfdcLoginUrl": "https://login.salesforce.com",
-    "sourceApiVersion": "45.0",
+    "sourceApiVersion": "46.0",
     "packageAliases": {
         "PureAloeLWC": "0HoB0000000Gmi9KAC",
-        "PureAloeLWC@1.0.0-7": "04tB0000000KAeuIAG"
+        "PureAloeLWC@2.0.0-1": "04tB0000000AjVkIAK"
     }
 }
