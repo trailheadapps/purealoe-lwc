@@ -13,7 +13,7 @@ if [ $CI ]; then
   TARGET_ORG="packagingorg"
 fi
 
-PACKAGE_VERSION="$($SFDX_CLI_EXEC force:package:version:create -p purealoe -x -w 10 --json)"
+PACKAGE_VERSION="$($SFDX_CLI_EXEC force:package:version:create -p PureAloeLWC -x -w 10 --json)"
 RESULT="$(echo $PACKAGE_VERSION | jq '.status')"
 echo "Result is $RESULT"
 
