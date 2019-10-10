@@ -1,20 +1,18 @@
 public class Einstein_Example {
-
     @AuraEnabled
-    public Integer id {get; set;}
+    public Integer id { get; set; }
     @AuraEnabled
-    public String name {get; set;}
+    public String name { get; set; }
     @AuraEnabled
-    public DateTime createdAt {get; set;}
+    public DateTime createdAt { get; set; }
     @AuraEnabled
-    public Einstein_Label label {get; set;}
+    public Einstein_Label label { get; set; }
     @AuraEnabled
-    public String location {get; set;}
+    public String location { get; set; }
 
     public enum Types {
         ALL,
         FEEDBACK,
         UPLOAD
     }
-
 }

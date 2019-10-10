@@ -1,22 +1,21 @@
 public virtual class Einstein_HttpBodyPart {
-
     public Einstein_HttpBodyPart() {
     }
-    
+
     //  The boundary is alligned so it doesn't produce padding characters when base64 encoded.
     private final static string Boundary = '1ff13444ed8140c7a32fc4e6451aa76d';
-
 
     public static String getBoundary() {
         return Boundary;
     }
 
-
     /**
      *  Returns the request's content type for multipart/form-data requests.
      */
     public static string GetContentType() {
-        return 'multipart/form-data; charset="UTF-8"; boundary="' + Boundary + '"';
+        return 'multipart/form-data; charset="UTF-8"; boundary="' +
+            Boundary +
+            '"';
     }
 
     /**
@@ -25,7 +24,8 @@ public virtual class Einstein_HttpBodyPart {
     public static string SafelyPad(
         string value,
         string valueCrLf64,
-        string lineBreaks) {
+        string lineBreaks
+    ) {
         string valueCrLf = '';
         blob valueCrLfBlob = null;
 
@@ -52,8 +52,7 @@ public virtual class Einstein_HttpBodyPart {
     /**
      *  Write a boundary at the end of the form's body.
      */
-    public static string WriteBoundary(
-        EndingType ending) {
+    public static string WriteBoundary(EndingType ending) {
         string value = '';
 
         if (ending == EndingType.Cr) {
@@ -88,14 +87,21 @@ public virtual class Einstein_HttpBodyPart {
     /**
      *  Write a key-value pair to the form's body.
      */
-    public static string WriteBodyParameter(
-        string key,
-        string value) {
-        string contentDisposition = 'Content-Disposition: form-data; name="' + key + '"';
+    public static string WriteBodyParameter(string key, string value) {
+        string contentDisposition =
+            'Content-Disposition: form-data; name="' +
+            key +
+            '"';
         string contentDispositionCrLf = contentDisposition + '\r\n\r\n';
         blob contentDispositionCrLfBlob = blob.valueOf(contentDispositionCrLf);
-        string contentDispositionCrLf64 = EncodingUtil.base64Encode(contentDispositionCrLfBlob);
-        string content = SafelyPad(contentDisposition, contentDispositionCrLf64, '\r\n\r\n');
+        string contentDispositionCrLf64 = EncodingUtil.base64Encode(
+            contentDispositionCrLfBlob
+        );
+        string content = SafelyPad(
+            contentDisposition,
+            contentDispositionCrLf64,
+            '\r\n\r\n'
+        );
         string valueCrLf = value + '\r\n';
         blob valueCrLfBlob = blob.valueOf(valueCrLf);
         string valueCrLf64 = EncodingUtil.base64Encode(valueCrLfBlob);
@@ -104,28 +110,47 @@ public virtual class Einstein_HttpBodyPart {
 
         return content;
     }
-    
-  /**
+
+    /**
      *  Write a key-value pair to the form's body for a blob.
      */
-    public static string WriteBlobBodyParameter(string key, string file64, string fileName) {
-        
+    public static string WriteBlobBodyParameter(
+        string key,
+        string file64,
+        string fileName
+    ) {
         String mimeType = resolveMimeType(fileName);
-        
-        string contentDisposition = 'Content-Disposition: form-data; name="' + key + '"; filename="'+fileName+'"';
+
+        string contentDisposition =
+            'Content-Disposition: form-data; name="' +
+            key +
+            '"; filename="' +
+            fileName +
+            '"';
         string contentDispositionCrLf = contentDisposition + '\r\n';
         blob contentDispositionCrLfBlob = blob.valueOf(contentDispositionCrLf);
-        string contentDispositionCrLf64 = EncodingUtil.base64Encode(contentDispositionCrLfBlob);
-        string content = SafelyPad(contentDisposition, contentDispositionCrLf64, '\r\n');
-        
+        string contentDispositionCrLf64 = EncodingUtil.base64Encode(
+            contentDispositionCrLfBlob
+        );
+        string content = SafelyPad(
+            contentDisposition,
+            contentDispositionCrLf64,
+            '\r\n'
+        );
+
         string contentTypeHeader = 'Content-Type: ' + mimeType;
         string contentTypeCrLf = contentTypeHeader + '\r\n\r\n';
         blob contentTypeCrLfBlob = blob.valueOf(contentTypeCrLf);
-        string contentTypeCrLf64 = EncodingUtil.base64Encode(contentTypeCrLfBlob);
+        string contentTypeCrLf64 = EncodingUtil.base64Encode(
+            contentTypeCrLfBlob
+        );
         content += SafelyPad(contentTypeHeader, contentTypeCrLf64, '\r\n\r\n');
-        
+
         integer file64Length = file64.length();
-        String last4Bytes = file64.substring(file64.length()-4,file64.length());
+        String last4Bytes = file64.substring(
+            file64.length() - 4,
+            file64.length()
+        );
 
         // Avoid padding the file data with spaces, which SafelyPad does
         // http://salesforce.stackexchange.com/a/33326/102
@@ -143,8 +168,8 @@ public virtual class Einstein_HttpBodyPart {
             // See http://en.wikipedia.org/wiki/Base64 for base64 mapping table
             // Therefore, we replace == with 0K
             // Note: if using \n\n instead of \r\n replace == with 'oK'
-            last4Bytes = last4Bytes.substring(0,2) + '0K';
-            file64 = file64.substring(0,file64.length()-4) + last4Bytes;
+            last4Bytes = last4Bytes.substring(0, 2) + '0K';
+            file64 = file64.substring(0, file64.length() - 4) + last4Bytes;
             // We have appended the \r\n to the Blob, so leave footer as it is.
             ending = EndingType.CrLf;
         } else if (last4Bytes.endsWith('=')) {
@@ -156,29 +181,32 @@ public virtual class Einstein_HttpBodyPart {
             // The Decimal value of 001101 is 13
             // The base64 value of 13 is N
             // Therefore, we replace = with N
-            last4Bytes = last4Bytes.substring(0,3) + 'N';
-        	file64 = file64.substring(0,file64.length()-4) + last4Bytes;
+            last4Bytes = last4Bytes.substring(0, 3) + 'N';
+            file64 = file64.substring(0, file64.length() - 4) + last4Bytes;
             // We have appended the CR e.g. \r, still need to prepend the line feed to the footer
             ending = EndingType.Cr;
         }
-               
+
         content += file64;
-        
+
         content += WriteBoundary(ending);
         return content;
     }
-    
+
     private static String resolveMimeType(String fileName) {
         String fileType = fileName.substringAfterLast('.');
         String mimeType = 'image/png'; // fallback value
         if (fileType.equalsIgnoreCase('png')) {
             mimeType = 'image/png';
-        } else if (fileType.equalsIgnoreCase('jpeg') || fileType.equalsIgnoreCase('jpg')) {
+        } else if (
+            fileType.equalsIgnoreCase('jpeg') ||
+            fileType.equalsIgnoreCase('jpg')
+        ) {
             mimeType = 'image/jpg';
         } else if (fileType.equalsIgnoreCase('pgm')) {
             mimeType = 'image/x-portable-graymap';
         } else if (fileType.equalsIgnoreCase('ppm')) {
-            mimeType = 'image/x-portable-pixmap';            
+            mimeType = 'image/x-portable-pixmap';
         }
         return mimeType;
     }

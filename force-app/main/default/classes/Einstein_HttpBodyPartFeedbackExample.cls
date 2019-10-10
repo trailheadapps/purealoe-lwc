@@ -1,5 +1,4 @@
 public class Einstein_HttpBodyPartFeedbackExample extends Einstein_HttpBodyPart {
-
     public enum Types {
         BASE64,
         DOCUMENT
@@ -11,14 +10,20 @@ public class Einstein_HttpBodyPartFeedbackExample extends Einstein_HttpBodyPart 
     private String name;
     private Types types;
 
-    public Einstein_HttpBodyPartFeedbackExample(String name, String expectedLabel, String modelId, String data, Einstein_HttpBodyPartFeedbackExample.Types types) {
+    public Einstein_HttpBodyPartFeedbackExample(
+        String name,
+        String expectedLabel,
+        String modelId,
+        String data,
+        Einstein_HttpBodyPartFeedbackExample.Types types
+    ) {
         setName(name);
         setExpectedLabel(expectedLabel);
         setModelId(modelId);
         setData(data);
         setType(types);
     }
-    
+
     public Blob build() {
         String body = '';
         body += WriteBoundary();
@@ -30,7 +35,7 @@ public class Einstein_HttpBodyPartFeedbackExample extends Einstein_HttpBodyPart 
         body += WriteBoundary();
         body += WriteBodyParameter('modelId', modelId);
         body += WriteBoundary();
-        if (types==Einstein_HttpBodyPartFeedbackExample.Types.BASE64) {
+        if (types == Einstein_HttpBodyPartFeedbackExample.Types.BASE64) {
             body += WriteBlobBodyParameter('data', data, name);
         } else {
             body += WriteBlobBodyParameter('document', data, name);
@@ -39,15 +44,19 @@ public class Einstein_HttpBodyPartFeedbackExample extends Einstein_HttpBodyPart 
         Blob bodyBlob = EncodingUtil.base64Decode(body);
         return bodyBlob;
     }
-    
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         if (!String.isEmpty(name)) {
-            if (name.length()>180) {
-                throw new Einstein_StringTooLongException('name', 180, name.length());
+            if (name.length() > 180) {
+                throw new Einstein_StringTooLongException(
+                    'name',
+                    180,
+                    name.length()
+                );
             }
         }
         this.name = name;
@@ -93,5 +102,4 @@ public class Einstein_HttpBodyPartFeedbackExample extends Einstein_HttpBodyPart 
     public void setType(Einstein_HttpBodyPartFeedbackExample.Types types) {
         this.types = types;
     }
-    
 }

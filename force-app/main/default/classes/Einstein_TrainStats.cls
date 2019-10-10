@@ -1,39 +1,37 @@
 public class Einstein_TrainStats {
-
     @AuraEnabled
-	public Integer labels {get;set;}
+    public Integer labels { get; set; }
     @AuraEnabled
-    public Integer examples {get;set;}
+    public Integer examples { get; set; }
     @AuraEnabled
-    public String totalTime {get;set;}
+    public String totalTime { get; set; }
     @AuraEnabled
-    public Transforms transforms {get;set;}
+    public Transforms transforms { get; set; }
     @AuraEnabled
-    public String trainingTime {get;set;}
+    public String trainingTime { get; set; }
     @AuraEnabled
-    public Boolean earlyStopping {get;set;}
+    public Boolean earlyStopping { get; set; }
     @AuraEnabled
-    public Integer lastEpochDone {get;set;}
+    public Integer lastEpochDone { get; set; }
     @AuraEnabled
-    public String modelSaveTime {get;set;}
+    public String modelSaveTime { get; set; }
     @AuraEnabled
-    public Integer testSplitSize {get;set;}
+    public Integer testSplitSize { get; set; }
     @AuraEnabled
-    public Integer trainSplitSize {get;set;}
+    public Integer trainSplitSize { get; set; }
     @AuraEnabled
-    public String datasetLoadTime {get;set;}
+    public String datasetLoadTime { get; set; }
     @AuraEnabled
-    public String preProcessStats {get;set;}
+    public String preProcessStats { get; set; }
     @AuraEnabled
-    public String postProcessStats {get;set;}
-    
+    public String postProcessStats { get; set; }
 
     public class Transforms {
         @AuraEnabled
-	    public Boolean toFlip {get;set;}
+        public Boolean toFlip { get; set; }
         @AuraEnabled
-	    public Boolean toRotate {get;set;}
+        public Boolean toRotate { get; set; }
         @AuraEnabled
-	    public String cropLocation {get;set;} 
+        public String cropLocation { get; set; }
     }
 }
