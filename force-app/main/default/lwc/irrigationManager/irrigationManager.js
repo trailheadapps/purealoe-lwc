@@ -20,10 +20,10 @@ export default class IrrigationManager extends LightningElement {
     @api duration;
     @api recordId;
     @api startTime;
-    
+
     //Flow output property
-    @api addedMsgText
-    
+    @api addedMsgText;
+
     @track messageText;
 
     @wire(getRecord, {
@@ -35,34 +35,48 @@ export default class IrrigationManager extends LightningElement {
     //Flow output property
     @api
     get overrideCount() {
-        return getFieldValue(this.harvestRecord.data, FIELD_IRRIGATION_OVERRIDES);
+        return getFieldValue(
+            this.harvestRecord.data,
+            FIELD_IRRIGATION_OVERRIDES
+        );
     }
 
-    @api 
+    @api
     get defaultMsg() {
         const name = getFieldValue(this.harvestRecord.data, FIELD_NAME);
-        return 'Alert! Irrigation for '
-                    + name 
-                    + ' will begin at ' 
-                    + this.startTime 
-                    + ', and is scheduled to last '
-                    + this.duration 
-                    + ' minutes.';
+        return (
+            'Alert! Irrigation for ' +
+            name +
+            ' will begin at ' +
+            this.startTime +
+            ', and is scheduled to last ' +
+            this.duration +
+            ' minutes.'
+        );
     }
 
     handleStartTimeChange(event) {
-        const attributeChangeEvent = new FlowAttributeChangeEvent('startTime', event.target.value);
+        const attributeChangeEvent = new FlowAttributeChangeEvent(
+            'startTime',
+            event.target.value
+        );
         this.dispatchEvent(attributeChangeEvent);
     }
 
     handleDurationChange(event) {
-        const attributeChangeEvent = new FlowAttributeChangeEvent('duration', event.target.value);
+        const attributeChangeEvent = new FlowAttributeChangeEvent(
+            'duration',
+            event.target.value
+        );
         this.dispatchEvent(attributeChangeEvent);
     }
 
     handleMessageChange(event) {
         this.messageText = event.target.value;
-        const attributeChangeEvent = new FlowAttributeChangeEvent('addedMsgText', event.target.value);
+        const attributeChangeEvent = new FlowAttributeChangeEvent(
+            'addedMsgText',
+            event.target.value
+        );
         this.dispatchEvent(attributeChangeEvent);
     }
 }
