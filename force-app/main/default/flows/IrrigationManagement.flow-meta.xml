@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <status>ACTIVE</status>
     <assignments>
         <name>Flag_as_Exceeding_Accepted_Overrides</name>
         <label>Flag as Exceeding Accepted Overrides</label>
-        <locationX>281</locationX>
+        <locationX>387</locationX>
         <locationY>332</locationY>
         <assignmentItems>
             <assignToReference>varOverridesExceeded</assignToReference>
@@ -27,7 +26,7 @@
     <assignments>
         <name>setAlertMsg</name>
         <label>setAlertMsg</label>
-        <locationX>74</locationX>
+        <locationX>180</locationX>
         <locationY>333</locationY>
         <assignmentItems>
             <assignToReference>varMsgText</assignToReference>
@@ -64,7 +63,7 @@
     <decisions>
         <name>Number_of_Accepted_Overrides_Exceeded</name>
         <label>Number of Accepted Overrides Exceeded</label>
-        <locationX>74</locationX>
+        <locationX>180</locationX>
         <locationY>196</locationY>
         <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
         <rules>
@@ -123,7 +122,7 @@
     <formulas>
         <name>alertAndMaintenanceMsg</name>
         <dataType>String</dataType>
-        <expression>{!varAlertMsg} + ' ' + {!Additional_maintenance_notes}</expression>
+        <expression>{!varAlertMsg} + &#39; &#39; + {!Additional_maintenance_notes}</expression>
     </formulas>
     <formulas>
         <name>IncrementedOverrides</name>
@@ -133,11 +132,17 @@
     </formulas>
     <interviewLabel>IrrigationManagement {!$Flow.CurrentDateTime}</interviewLabel>
     <label>IrrigationManagement</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
     <processType>Flow</processType>
     <recordCreates>
         <name>Publish_Irrigation_Alert</name>
         <label>Publish Irrigation Alert</label>
-        <locationX>166</locationX>
+        <locationX>272</locationX>
         <locationY>556</locationY>
         <assignRecordIdToReference>varIrrigationEvent</assignRecordIdToReference>
         <inputAssignments>
@@ -163,7 +168,7 @@
     <recordUpdates>
         <name>updateHarvestRecord</name>
         <label>updateHarvestRecord</label>
-        <locationX>171</locationX>
+        <locationX>277</locationX>
         <locationY>456</locationY>
         <connector>
             <targetReference>Publish_Irrigation_Alert</targetReference>
@@ -192,7 +197,7 @@
     <screens>
         <name>Irrigation_Malfunction_Report</name>
         <label>Irrigation Malfunction Report</label>
-        <locationX>283</locationX>
+        <locationX>389</locationX>
         <locationY>198</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -211,12 +216,14 @@
             <fieldType>LargeTextArea</fieldType>
             <isRequired>false</isRequired>
         </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
     </screens>
     <screens>
         <name>IrrigationMgmt</name>
         <label>IrrigationMgmt</label>
-        <locationX>74</locationX>
-        <locationY>87</locationY>
+        <locationX>187</locationX>
+        <locationY>50</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -225,12 +232,12 @@
         </connector>
         <fields>
             <name>IrrigationManager</name>
-            <extensionName>c:irrigationManagerWrapper</extensionName>
+            <extensionName>c:irrigationManager</extensionName>
             <fieldType>ComponentInstance</fieldType>
             <inputParameters>
-                <name>ldsRecId</name>
+                <name>duration</name>
                 <value>
-                    <elementReference>recordId</elementReference>
+                    <elementReference>defaultDuration</elementReference>
                 </value>
             </inputParameters>
             <inputParameters>
@@ -240,23 +247,26 @@
                 </value>
             </inputParameters>
             <inputParameters>
-                <name>duration</name>
+                <name>recordId</name>
                 <value>
-                    <elementReference>defaultDuration</elementReference>
+                    <elementReference>recordId</elementReference>
                 </value>
             </inputParameters>
             <isRequired>true</isRequired>
             <outputParameters>
                 <assignToReference>varAlertMsg</assignToReference>
-                <name>msgText</name>
+                <name>addedMsgText</name>
             </outputParameters>
             <outputParameters>
                 <assignToReference>varExistingOverrides</assignToReference>
                 <name>overrideCount</name>
             </outputParameters>
         </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
     </screens>
     <startElementReference>IrrigationMgmt</startElementReference>
+    <status>Active</status>
     <variables>
         <name>recordId</name>
         <dataType>String</dataType>
