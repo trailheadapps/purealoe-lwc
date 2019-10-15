@@ -1,5 +1,4 @@
 public class Einstein_HttpClient {
-
     private String url;
     private Boolean isDelete = false;
     private Boolean isPost = false;
@@ -13,8 +12,10 @@ public class Einstein_HttpClient {
     private Integer statusCode;
     private String statusMessage;
 
-
-    public Einstein_HttpClient(Einstein_PredictionService predictionService, String url) {
+    public Einstein_HttpClient(
+        Einstein_PredictionService predictionService,
+        String url
+    ) {
         this.predictionService = predictionService;
         if (!url.endsWith('apiusage')) {
             this.url = predictionService.baseUrl + url;
@@ -23,7 +24,11 @@ public class Einstein_HttpClient {
         }
     }
 
-    public Einstein_HttpClient(Einstein_PredictionService predictionService, String url, Blob body) {
+    public Einstein_HttpClient(
+        Einstein_PredictionService predictionService,
+        String url,
+        Blob body
+    ) {
         this.predictionService = predictionService;
         this.url = predictionService.baseUrl + url;
         this.body = body;
@@ -45,7 +50,7 @@ public class Einstein_HttpClient {
     public void isPost(boolean isPost) {
         this.isPost = isPost;
     }
-    
+
     public boolean isPut() {
         return isPut;
     }
@@ -55,18 +60,23 @@ public class Einstein_HttpClient {
     }
 
     public void execute() {
-        if (url!=null) {
-            
+        if (url != null) {
             HttpRequest request = new HttpRequest();
-            request.setHeader('Authorization', 'Bearer ' + predictionService.getBearerToken());
+            request.setHeader(
+                'Authorization',
+                'Bearer ' + predictionService.getBearerToken()
+            );
             request.setHeader('Cache-Control', 'no-cache');
-            
+
             request.setMethod('GET');
 
             if (isDelete()) {
                 request.setMethod('DELETE');
             } else if (isPost() || isPut()) {
-                request.setHeader('Content-Type', Einstein_HttpBodyPart.GetContentType());
+                request.setHeader(
+                    'Content-Type',
+                    Einstein_HttpBodyPart.GetContentType()
+                );
                 request.setBodyAsblob(body);
                 if (isPut()) {
                     request.setMethod('PUT');
@@ -77,17 +87,17 @@ public class Einstein_HttpClient {
 
             request.setEndpoint(url);
 
-             Http http = new Http();
-             HTTPResponse response = http.send(request);
+            Http http = new Http();
+            HTTPResponse response = http.send(request);
 
             predictionService.isExecuting(true);
-            
+
             updateResponseValues(response);
         }
     }
 
     public Boolean isError() {
-        return (getStatusCode()!=200 && getStatusCode()!=204);
+        return (getStatusCode() != 200 && getStatusCode() != 204);
     }
 
     public Integer getStatusCode() {
@@ -110,14 +120,17 @@ public class Einstein_HttpClient {
             parser = JSON.createParser(response.getBody());
         } catch (Exception e) {
             errorMessage = 'Could not read JSON data';
-        	return;
-		}
-        if (getStatusCode()==200) {
+            return;
+        }
+        if (getStatusCode() == 200) {
             Boolean hasDataToken = false;
-            while (parser.nextToken()!=null) {
-                if (parser.getCurrentToken()==JSONToken.FIELD_NAME) {
+            while (parser.nextToken() != null) {
+                if (parser.getCurrentToken() == JSONToken.FIELD_NAME) {
                     String currentProperty = parser.getText();
-                    if (currentProperty=='data' || currentProperty=='metricsData') {
+                    if (
+                        currentProperty == 'data' ||
+                        currentProperty == 'metricsData'
+                    ) {
                         parser.nextToken();
                         hasDataToken = true;
                         break;
@@ -128,10 +141,10 @@ public class Einstein_HttpClient {
                 parser = JSON.createParser(response.getBody());
             }
         } else {
-            while (parser.nextToken()!=null) {
-                if (parser.getCurrentToken()==JSONToken.FIELD_NAME) {
+            while (parser.nextToken() != null) {
+                if (parser.getCurrentToken() == JSONToken.FIELD_NAME) {
                     String currentProperty = parser.getText();
-                    if (currentProperty=='message') {
+                    if (currentProperty == 'message') {
                         parser.nextToken();
                         errorMessage = parser.getText();
                         break;
@@ -149,5 +162,4 @@ public class Einstein_HttpClient {
     public JSONParser getParser() {
         return parser;
     }
-
 }

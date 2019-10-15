@@ -1,10 +1,8 @@
 public class Einstein_TrainParams {
-    
     @AuraEnabled
-    public Decimal trainSplitRatio {get; set;}
+    public Decimal trainSplitRatio { get; set; }
     @AuraEnabled
-	public Boolean withFeedback {get; set;}
+    public Boolean withFeedback { get; set; }
     @AuraEnabled
-    public Long withGlobalDatasetId {get; set;}
-
+    public Long withGlobalDatasetId { get; set; }
 }
