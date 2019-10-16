@@ -1,19 +1,24 @@
 public class Einstein_HttpBodyPartTraining extends Einstein_HttpBodyPart {
-    
     private Long datasetId;
     private String name;
     private Integer epochs;
     private Decimal learningRate;
     private Einstein_TrainParams trainParams;
-    
+
     private boolean hasEpochs = true;
     private boolean hasLearningRate = true;
-    
+
     private static Decimal DEFAULT_LEARNING_RATE = 0.0001;
     private static Decimal MIN_LEARNING_RATE = 0.0001;
     private static Decimal MAX_LEARNING_RAGE = 0.01;
-    
-    public Einstein_HttpBodyPartTraining(Long datasetId, String name, Integer epochs, Decimal learningRate, Einstein_TrainParams trainParams) {
+
+    public Einstein_HttpBodyPartTraining(
+        Long datasetId,
+        String name,
+        Integer epochs,
+        Decimal learningRate,
+        Einstein_TrainParams trainParams
+    ) {
         setDatasetId(datasetId);
         setName(name);
         setEpochs(epochs);
@@ -31,13 +36,19 @@ public class Einstein_HttpBodyPartTraining extends Einstein_HttpBodyPart {
             body += WriteBoundary();
             body += WriteBodyParameter('epochs', String.valueOf(epochs));
         }
-        if(hasLearningRate) {
-        	body += WriteBoundary();
-        	body += WriteBodyParameter('learningRate', String.valueOf(learningRate));
+        if (hasLearningRate) {
+            body += WriteBoundary();
+            body += WriteBodyParameter(
+                'learningRate',
+                String.valueOf(learningRate)
+            );
         }
-        if (trainParams!=null) {
-	        body += WriteBoundary();
-            body += WriteBodyParameter('trainParams', JSON.serialize(trainParams, true));
+        if (trainParams != null) {
+            body += WriteBoundary();
+            body += WriteBodyParameter(
+                'trainParams',
+                JSON.serialize(trainParams, true)
+            );
         }
         body += WriteBoundary(EndingType.CrLf);
         Blob bodyBlob = EncodingUtil.base64Decode(body);
@@ -63,8 +74,12 @@ public class Einstein_HttpBodyPartTraining extends Einstein_HttpBodyPart {
         if (String.isEmpty(name)) {
             throw new Einstein_StringIsEmptyException('name');
         }
-        if (name.length()>180) {
-            throw new Einstein_StringTooLongException('name', 180, name.length());
+        if (name.length() > 180) {
+            throw new Einstein_StringTooLongException(
+                'name',
+                180,
+                name.length()
+            );
         }
         this.name = name;
     }
@@ -74,9 +89,9 @@ public class Einstein_HttpBodyPartTraining extends Einstein_HttpBodyPart {
     }
 
     public void setEpochs(Integer epochs) {
-        if (epochs==null || epochs==0) {
+        if (epochs == null || epochs == 0) {
             hasEpochs = false;
-        } else if (epochs>100) {
+        } else if (epochs > 100) {
             throw new Einstein_NumberTooBigException('epochs', 100, epochs);
         }
         this.epochs = epochs;
@@ -87,13 +102,21 @@ public class Einstein_HttpBodyPartTraining extends Einstein_HttpBodyPart {
     }
 
     public void setLearningRate(Decimal learningRate) {
-        if (learningRate == null || learningRate==0) {
+        if (learningRate == null || learningRate == 0) {
             hasLearningRate = false;
         } else {
             if (learningRate < MIN_LEARNING_RATE) {
-                throw new Einstein_NumberTooSmallException('learningRate', MIN_LEARNING_RATE, learningRate);
+                throw new Einstein_NumberTooSmallException(
+                    'learningRate',
+                    MIN_LEARNING_RATE,
+                    learningRate
+                );
             } else if (learningRate > MAX_LEARNING_RAGE) {
-                throw new Einstein_NumberTooBigException('learningRate', MAX_LEARNING_RAGE, learningRate);
+                throw new Einstein_NumberTooBigException(
+                    'learningRate',
+                    MAX_LEARNING_RAGE,
+                    learningRate
+                );
             }
         }
         this.learningRate = learningRate;
@@ -106,5 +129,4 @@ public class Einstein_HttpBodyPartTraining extends Einstein_HttpBodyPart {
     public void setTrainParams(Einstein_TrainParams trainParams) {
         this.trainParams = trainParams;
     }
-
 }

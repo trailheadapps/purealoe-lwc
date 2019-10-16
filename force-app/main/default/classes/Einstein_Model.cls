@@ -1,35 +1,34 @@
 public class Einstein_Model {
-
     @AuraEnabled
-    public Long datasetId {get; set;}
+    public Long datasetId { get; set; }
     @AuraEnabled
-    public String name {get; set;}
+    public String name { get; set; }
     @AuraEnabled
-    public String status {get; set;}
+    public String status { get; set; }
     @AuraEnabled
-    public Decimal progress {get; set;}
+    public Decimal progress { get; set; }
     @AuraEnabled
-    public DateTime createdAt {get; set;}
+    public DateTime createdAt { get; set; }
     @AuraEnabled
-    public DateTime updatedAt {get; set;}
+    public DateTime updatedAt { get; set; }
     @AuraEnabled
-    public Double learningRate {get; set;}
+    public Double learningRate { get; set; }
     @AuraEnabled
-    public Integer epochs {get; set;}
+    public Integer epochs { get; set; }
     @AuraEnabled
-    public Integer queuePosition {get; set;}
+    public Integer queuePosition { get; set; }
     @AuraEnabled
-    public String modelId {get; set;}
+    public String modelId { get; set; }
     @AuraEnabled
-    public String failureMsg {get; set;}
+    public String failureMsg { get; set; }
     @AuraEnabled
-    public Integer datasetVersionId {get; set;}
+    public Integer datasetVersionId { get; set; }
     @AuraEnabled
-    public String modelType {get; set;}
+    public String modelType { get; set; }
     @AuraEnabled
-    public Einstein_TrainParams trainParams {get; set;}
+    public Einstein_TrainParams trainParams { get; set; }
     @AuraEnabled
-    public Einstein_TrainStats trainStats {get; set;}
+    public Einstein_TrainStats trainStats { get; set; }
     @AuraEnabled
-    public String type {get; set;}
+    public String type { get; set; }
 }

@@ -1,26 +1,31 @@
 public class Einstein_HttpBodyPartPrediction extends Einstein_HttpBodyPart {
-    
     public enum Types {
         BASE64,
         FILEBLOB,
         URL,
         DOCUMENT
     }
-    
+
     private String modelId;
     private String data;
     private String sampleId;
     private Types type;
     private Integer numResults;
 
-    public Einstein_HttpBodyPartPrediction(String modelId, String data, Integer numResults, String sampleId, Einstein_HttpBodyPartPrediction.Types type) {
+    public Einstein_HttpBodyPartPrediction(
+        String modelId,
+        String data,
+        Integer numResults,
+        String sampleId,
+        Einstein_HttpBodyPartPrediction.Types type
+    ) {
         setModelId(modelId);
         setData(data);
         setNumResults(numResults);
         setSampleId(sampleId);
         setType(type);
     }
-    
+
     public Blob build() {
         String body = '';
         body += WriteBoundary();
@@ -30,14 +35,14 @@ public class Einstein_HttpBodyPartPrediction extends Einstein_HttpBodyPart {
             body += WriteBodyParameter('sampleId', sampleId);
         }
         body += WriteBoundary();
-        if (type==Types.BASE64) {
+        if (type == Types.BASE64) {
             body += WriteBodyParameter('sampleBase64Content', data);
-        } else if (type==Types.URL) {
+        } else if (type == Types.URL) {
             body += WriteBodyParameter('sampleLocation', data);
-        } else if (type==Types.DOCUMENT) {
+        } else if (type == Types.DOCUMENT) {
             body += WriteBodyParameter('document', data);
         }
-        if (numResults>0) {
+        if (numResults > 0) {
             body += WriteBoundary();
             body += WriteBodyParameter('numResults', numResults);
         }
@@ -45,7 +50,7 @@ public class Einstein_HttpBodyPartPrediction extends Einstein_HttpBodyPart {
         Blob bodyBlob = EncodingUtil.base64Decode(body);
         return bodyBlob;
     }
-    
+
     public String getModelId() {
         return modelId;
     }
@@ -85,5 +90,4 @@ public class Einstein_HttpBodyPartPrediction extends Einstein_HttpBodyPart {
     public void setNumResults(Integer numResults) {
         this.numResults = numResults;
     }
-
 }
