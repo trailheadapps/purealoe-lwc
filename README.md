@@ -1,6 +1,6 @@
 # Pure Aloe Lightning Web Components Sample Application
 
-[![CircleCI](https://circleci.com/gh/trailheadapps/purealoe-lwc.svg?style=svg)](https://circleci.com/gh/trailheadapps/purealoe-lwc)
+[![Github Workflow](<https://github.com/trailheadapps/purealoe-lwc/workflows/Salesforce%20DX%20CI%20(scratch%20org%20only)/badge.svg>)](https://github.com/trailheadapps/purealoe-lwc/actions)
 
 > IMPORTANT: This is the new Lightning Web Components version of the Pure Aloe sample application. If you are looking for the Aura version, click [here](https://github.com/trailheadapps/purealoe).
 
