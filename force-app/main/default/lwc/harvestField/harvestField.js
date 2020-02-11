@@ -1,4 +1,4 @@
-import { LightningElement, track, wire } from 'lwc';
+import { LightningElement, wire } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { NavigationMixin } from 'lightning/navigation';
 import { reduceErrors } from 'c/ldsUtils';
@@ -34,10 +34,10 @@ const fields = [
 ];
 
 export default class HarvestField extends NavigationMixin(LightningElement) {
-    @track error;
-    @track harvestField;
-    @track imageStatus;
-    @track recordId;
+    error;
+    harvestField;
+    imageStatus;
+    recordId;
 
     @wire(CurrentPageReference) pageRef;
 
