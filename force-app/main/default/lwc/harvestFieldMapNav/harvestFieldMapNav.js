@@ -28,7 +28,6 @@ export default class HarvestFieldMapNav extends NavigationMixin(
     @api recordId;
     error;
     harvestField;
-    harvestFields;
 
     @wire(getRecord, {
         recordId: '$recordId',
