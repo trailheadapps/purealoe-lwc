@@ -1,10 +1,10 @@
-import { LightningElement, api, track } from 'lwc';
+import { LightningElement, api } from 'lwc';
 
 export default class IrrigationDialog extends LightningElement {
     @api harvestFields;
     @api selectedHarvestFields;
-    @track options;
-    @track value;
+    options;
+    value;
 
     connectedCallback() {
         const fields = this.harvestFields;

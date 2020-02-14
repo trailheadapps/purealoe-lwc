@@ -167,6 +167,7 @@ public class Einstein_PlaygroundController {
                 SELECT Title, VersionData
                 FROM ContentVersion
                 WHERE Title = 'einstein_platform'
+                WITH SECURITY_ENFORCED
                 LIMIT 1
             ];
             mapSettings.put('einsteinFile', true);

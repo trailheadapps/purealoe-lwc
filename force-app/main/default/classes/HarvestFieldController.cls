@@ -13,6 +13,7 @@ global with sharing class HarvestFieldController {
                 Irrigation__c,
                 Picture_URL__c
             FROM Harvest_Field__c
+            WITH SECURITY_ENFORCED
             LIMIT 20
         ];
     }

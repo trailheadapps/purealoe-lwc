@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="irrigationManager">
-    <apiVersion>47.0</apiVersion>
+<LightningComponentBundle
+    xmlns="http://soap.sforce.com/2006/04/metadata"
+    fqn="irrigationManager"
+>
+    <apiVersion>48.0</apiVersion>
     <isExposed>true</isExposed>
     <masterLabel>Irrigation Manager</masterLabel>
     <description>Allows users to set time/duration of irrigation</description>
@@ -9,11 +12,36 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__FlowScreen">
-            <property name="duration" type="Integer" label="Irrigation duration" role="inputOnly" />
-            <property name="recordId" type="String" label="Record Id" role="inputOnly"/>
-            <property name="addedMsgText" type="String" label="Alert message text" role="outputOnly"/>
-            <property name="overrideCount" type="Integer" label="Current count of overrides" role="outputOnly" />
-            <property name="startTime" type="String" label="Irrigation start time" role="inputOnly"/>
+            <property
+                name="duration"
+                type="Integer"
+                label="Irrigation duration"
+                role="inputOnly"
+            />
+            <property
+                name="recordId"
+                type="String"
+                label="Record Id"
+                role="inputOnly"
+            />
+            <property
+                name="addedMsgText"
+                type="String"
+                label="Alert message text"
+                role="outputOnly"
+            />
+            <property
+                name="overrideCount"
+                type="Integer"
+                label="Current count of overrides"
+                role="outputOnly"
+            />
+            <property
+                name="startTime"
+                type="String"
+                label="Irrigation start time"
+                role="inputOnly"
+            />
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

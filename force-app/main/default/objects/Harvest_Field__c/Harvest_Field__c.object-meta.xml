@@ -38,7 +38,8 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <comment
+        >Action override created by Lightning App Builder during activation.</comment>
         <content>Harvest_Field_Record_Page4</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>

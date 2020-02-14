@@ -89,6 +89,7 @@ global with sharing class MerchandiseController {
                     : filter.category)
                 AND Price__c >= :filter.minPrice
                 AND Price__c <= :filter.maxPrice
+            WITH SECURITY_ENFORCED
             LIMIT :pSize
             OFFSET :offset
         ];
@@ -107,6 +108,7 @@ global with sharing class MerchandiseController {
                 Category__c,
                 Picture_URL__c
             FROM Merchandise__c
+            WITH SECURITY_ENFORCED
         ];
     }
 }

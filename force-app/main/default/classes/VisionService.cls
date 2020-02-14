@@ -9,6 +9,7 @@ public class VisionService {
             SELECT Id
             FROM Harvest_Field__c
             WHERE NAME = 'Aloe SE-2'
+            WITH SECURITY_ENFORCED
         ];
         fieldId = field.Id;
     }
@@ -40,12 +41,14 @@ public class VisionService {
                     SELECT Id, RecordId
                     FROM FeedAttachment
                     WHERE FeedEntityId = :this.feedItemId
+                    WITH SECURITY_ENFORCED
                     LIMIT 1
                 ];
                 ContentVersion content = [
                     SELECT VersionData
                     FROM ContentVersion
                     WHERE Id = :fa.RecordId
+                    WITH SECURITY_ENFORCED
                     LIMIT 1
                 ];
                 Einstein_PredictionService service = new Einstein_PredictionService(
