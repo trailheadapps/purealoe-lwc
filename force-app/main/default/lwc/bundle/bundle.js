@@ -1,4 +1,4 @@
-import { LightningElement, api, wire, track } from 'lwc';
+import { LightningElement, api, wire } from 'lwc';
 import { loadScript } from 'lightning/platformResourceLoader';
 import {
     createRecord,
@@ -11,10 +11,10 @@ import getBundleItems from '@salesforce/apex/BundleController.getBundleItems';
 
 export default class Bundle extends LightningElement {
     @api recordId;
-    @track bundleItems = [];
-    @track error;
-    @track totalQty = 0;
-    @track totalMSRP = 0;
+    bundleItems = [];
+    error;
+    totalQty = 0;
+    totalMSRP = 0;
     _bundleItem;
     _isRendered;
 

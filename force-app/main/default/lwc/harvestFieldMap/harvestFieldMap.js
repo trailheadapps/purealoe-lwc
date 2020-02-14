@@ -1,4 +1,4 @@
-import { LightningElement, api, wire, track } from 'lwc';
+import { LightningElement, api, wire } from 'lwc';
 import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
 import { CurrentPageReference } from 'lightning/navigation';
 import { fireEvent } from 'c/pubsub';
@@ -30,8 +30,8 @@ export default class HarvestFieldMap extends LightningElement {
     @api harvestFields;
     @api recordId;
 
-    @track selectedFields = [];
-    @track selectedRecords = [];
+    selectedFields = [];
+    selectedRecords = [];
 
     @wire(CurrentPageReference) pageRef;
 

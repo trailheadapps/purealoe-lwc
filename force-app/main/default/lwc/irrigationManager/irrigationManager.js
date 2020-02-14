@@ -1,4 +1,4 @@
-import { LightningElement, api, wire, track } from 'lwc';
+import { LightningElement, api, wire } from 'lwc';
 import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
 import { FlowAttributeChangeEvent } from 'lightning/flowSupport';
 import FIELD_ID from '@salesforce/schema/Harvest_Field__c.Id';
@@ -24,7 +24,7 @@ export default class IrrigationManager extends LightningElement {
     //Flow output property
     @api addedMsgText;
 
-    @track messageText;
+    messageText;
 
     @wire(getRecord, {
         recordId: '$recordId',
