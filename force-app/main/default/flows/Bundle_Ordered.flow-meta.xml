@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <status>ACTIVE</status>
     <actionCalls>
@@ -11,7 +11,8 @@
         <inputParameters>
             <name>emailSubject</name>
             <value>
-                <stringValue>Salesforce Bundle Ordered process didn&apos;t start: No matching records found</stringValue>
+                <stringValue
+                >Salesforce Bundle Ordered process didn&apos;t start: No matching records found</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
@@ -37,13 +38,15 @@
         <inputParameters>
             <name>emailSubject</name>
             <value>
-                <stringValue>Salesforce Bundle Ordered process didn&apos;t start: Multiple matching records found</stringValue>
+                <stringValue
+                >Salesforce Bundle Ordered process didn&apos;t start: Multiple matching records found</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
             <name>emailBody</name>
             <value>
-                <elementReference>multipleRecordsFoundTextTemplate</elementReference>
+                <elementReference
+                >multipleRecordsFoundTextTemplate</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -69,7 +72,8 @@
             <assignToReference>myVariable_event_context</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>myVariable_event_current_record</elementReference>
+                <elementReference
+                >myVariable_event_current_record</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -89,7 +93,8 @@
             <name>eventContextCheckRule</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>myVariable_event_record_count</leftValueReference>
+                <leftValueReference
+                >myVariable_event_record_count</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <numberValue>0.0</numberValue>
@@ -104,7 +109,8 @@
             <name>eventContextGtOneCheckRule</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>myVariable_event_record_count</leftValueReference>
+                <leftValueReference
+                >myVariable_event_record_count</leftValueReference>
                 <operator>GreaterThan</operator>
                 <rightValue>
                     <numberValue>1.0</numberValue>
@@ -172,8 +178,10 @@
         <label>ContextCheckLoop</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>myVariable_event_current_record</assignNextValueToReference>
-        <collectionReference>myVariable_event_context_collection</collectionReference>
+        <assignNextValueToReference
+        >myVariable_event_current_record</assignNextValueToReference>
+        <collectionReference
+        >myVariable_event_context_collection</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
             <targetReference>RecordCountAssignment</targetReference>
@@ -200,7 +208,8 @@
         <label>myEventContextRecordLookup</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+        >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>eventContextCheckLoop</targetReference>
         </connector>
@@ -226,7 +235,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue />
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -250,7 +259,8 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>myVariable_myEvent.Bundle_Id__c</elementReference>
+                <elementReference
+                >myVariable_myEvent.Bundle_Id__c</elementReference>
             </value>
         </filters>
         <object>Bundle__c</object>
@@ -317,7 +327,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue />
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -402,7 +412,8 @@
             </processMetadataValues>
             <field>Account__c</field>
             <value>
-                <elementReference>myVariable_myEvent.Account_Id__c</elementReference>
+                <elementReference
+                >myVariable_myEvent.Account_Id__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -427,7 +438,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue />
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -438,14 +449,16 @@
             </processMetadataValues>
             <field>Date_Ordered__c</field>
             <value>
-                <elementReference>formula_2_myRule_1_A2_3843570683</elementReference>
+                <elementReference
+                >formula_2_myRule_1_A2_3843570683</elementReference>
             </value>
         </inputAssignments>
         <object>Bundle__c</object>
     </recordUpdates>
     <startElementReference>myEventContextRecordLookup</startElementReference>
     <textTemplates>
-        <description>text template for when multiple records are records found</description>
+        <description
+        >text template for when multiple records are records found</description>
         <name>multipleRecordsFoundTextTemplate</name>
         <text>Hello {!OrganizationName} Admin,
 

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="merchandiseList">
+<LightningComponentBundle
+    xmlns="http://soap.sforce.com/2006/04/metadata"
+    fqn="merchandiseList"
+>
     <apiVersion>48.0</apiVersion>
     <isExposed>true</isExposed>
     <masterLabel>Merchandise List</masterLabel>
@@ -9,8 +12,15 @@
         <target>lightning__RecordPage</target>
     </targets>
     <targetConfigs>
-        <targetConfig targets="lightning__AppPage,lightning__HomePage,lightning__RecordPage">
-            <property name="pageSize" default="8" type="String" label="Records per page"></property>
+        <targetConfig
+            targets="lightning__AppPage,lightning__HomePage,lightning__RecordPage"
+        >
+            <property
+                name="pageSize"
+                default="8"
+                type="String"
+                label="Records per page"
+            />
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>
