@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <status>ACTIVE</status>
     <assignments>
@@ -7,14 +7,16 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <assignmentItems>
-            <assignToReference>myVariable_waitStartTimeVariable</assignToReference>
+            <assignToReference
+            >myVariable_waitStartTimeVariable</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference>$Flow.CurrentDateTime</elementReference>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>isChangedDecision2_myRule_1_Status_c</targetReference>
+            <targetReference
+            >isChangedDecision2_myRule_1_Status_c</targetReference>
         </connector>
     </assignments>
     <decisions>
@@ -23,7 +25,8 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>isChangedDecision5_myRule_4_Status_c</targetReference>
+            <targetReference
+            >isChangedDecision5_myRule_4_Status_c</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>default</defaultConnectorLabel>
         <rules>
@@ -37,14 +40,17 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>myVariable_old.Status__c</leftValueReference>
+                <leftValueReference
+                >myVariable_old.Status__c</leftValueReference>
                 <operator>NotEqualTo</operator>
                 <rightValue>
-                    <elementReference>myVariable_current.Status__c</elementReference>
+                    <elementReference
+                    >myVariable_current.Status__c</elementReference>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>isChangedDecision5_myRule_4_Status_c</targetReference>
+                <targetReference
+                >isChangedDecision5_myRule_4_Status_c</targetReference>
             </connector>
             <label>isChangedRule_2_myRule_1_Status_c</label>
         </rules>
@@ -69,10 +75,12 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>myVariable_old.Status__c</leftValueReference>
+                <leftValueReference
+                >myVariable_old.Status__c</leftValueReference>
                 <operator>NotEqualTo</operator>
                 <rightValue>
-                    <elementReference>myVariable_current.Status__c</elementReference>
+                    <elementReference
+                    >myVariable_current.Status__c</elementReference>
                 </rightValue>
             </conditions>
             <connector>
@@ -124,7 +132,8 @@
                         <stringValue>Boolean</stringValue>
                     </value>
                 </processMetadataValues>
-                <leftValueReference>isChangedRule_2_myRule_1_Status_c</leftValueReference>
+                <leftValueReference
+                >isChangedRule_2_myRule_1_Status_c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
@@ -155,7 +164,8 @@
                         <stringValue>Picklist</stringValue>
                     </value>
                 </processMetadataValues>
-                <leftValueReference>myVariable_current.Status__c</leftValueReference>
+                <leftValueReference
+                >myVariable_current.Status__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Submitted to Distributors</stringValue>
@@ -207,7 +217,8 @@
                         <stringValue>Boolean</stringValue>
                     </value>
                 </processMetadataValues>
-                <leftValueReference>isChangedRule_5_myRule_4_Status_c</leftValueReference>
+                <leftValueReference
+                >isChangedRule_5_myRule_4_Status_c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
@@ -238,7 +249,8 @@
                         <stringValue>Picklist</stringValue>
                     </value>
                 </processMetadataValues>
-                <leftValueReference>myVariable_current.Status__c</leftValueReference>
+                <leftValueReference
+                >myVariable_current.Status__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Draft</stringValue>
@@ -304,7 +316,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue />
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -340,7 +352,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue />
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -376,7 +388,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue />
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -387,7 +399,8 @@
             </processMetadataValues>
             <field>Description__c</field>
             <value>
-                <elementReference>myVariable_current.Description__c</elementReference>
+                <elementReference
+                >myVariable_current.Description__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -412,7 +425,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue />
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -455,7 +468,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue />
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -471,7 +484,8 @@
         </inputAssignments>
         <object>Bundle_Unsubmitted__e</object>
     </recordCreates>
-    <startElementReference>myVariable_waitStartTimeAssignment</startElementReference>
+    <startElementReference
+    >myVariable_waitStartTimeAssignment</startElementReference>
     <variables>
         <name>myVariable_current</name>
         <dataType>SObject</dataType>

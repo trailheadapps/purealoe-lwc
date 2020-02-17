@@ -1,4 +1,4 @@
-import { LightningElement, track, wire } from 'lwc';
+import { LightningElement, wire } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 import { CurrentPageReference } from 'lightning/navigation';
 import { fireEvent, unregisterAllListeners } from 'c/pubsub';
@@ -8,13 +8,13 @@ import getHarvestFields from '@salesforce/apex/HarvestFieldController.getHarvest
 export default class HarvestFieldList extends NavigationMixin(
     LightningElement
 ) {
-    @track empMessage;
-    @track error;
-    @track selectedItems = [];
-    @track popup;
-    @track tableData;
-    @track treeData;
-    @track viewMode = 'tree';
+    empMessage;
+    error;
+    selectedItems = [];
+    popup;
+    tableData;
+    treeData;
+    viewMode = 'tree';
     _columns = [
         { label: 'Name', fieldName: 'Name', type: 'text', sortable: true },
         { label: 'Crop', fieldName: 'Crop__c', type: 'text', sortable: true },

@@ -1379,6 +1379,7 @@ public class Einstein_PredictionService {
                 SELECT Title, VersionData
                 FROM ContentVersion
                 WHERE Title = 'einstein_platform'
+                WITH SECURITY_ENFORCED
                 LIMIT 1
             ];
         } catch (QueryException e) {

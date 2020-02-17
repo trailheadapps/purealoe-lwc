@@ -1,4 +1,4 @@
-import { LightningElement, api, track, wire } from 'lwc';
+import { LightningElement, api, wire } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
 import getHarvestFields from '@salesforce/apex/HarvestFieldController.getHarvestFields';
@@ -26,9 +26,8 @@ export default class HarvestFieldMapNav extends NavigationMixin(
     LightningElement
 ) {
     @api recordId;
-    @track error;
-    @track harvestField;
-    @track harvestFields;
+    error;
+    harvestField;
 
     @wire(getRecord, {
         recordId: '$recordId',
