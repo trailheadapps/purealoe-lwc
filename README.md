@@ -40,90 +40,92 @@ There are two ways to install Pure Aloe:
 
 1. Set up your environment. Follow the steps in the [Quick Start: Lightning Web Components](https://trailhead.salesforce.com/content/learn/projects/quick-start-lightning-web-components/) Trailhead project. The steps include:
 
--   Enable Dev Hub in your Trailhead Playground
--   Install Salesforce CLI
--   Install Visual Studio Code
--   Install the Visual Studio Code Salesforce extensions, including the Lightning Web Components extension
+    - Enable Dev Hub in your Trailhead Playground
+    - Install Salesforce CLI
+    - Install Visual Studio Code
+    - Install the Visual Studio Code Salesforce extensions, including the Lightning Web Components extension
 
-2. If you haven't already done so, authenticate with your hub org and provide it with an alias (**myhuborg** in the command below):
+1. If you haven't already done so, authenticate with your hub org and provide it with an alias (**myhuborg** in the command below):
 
-```
-sfdx force:auth:web:login -d -a myhuborg
-```
+    ```
+    sfdx force:auth:web:login -d -a myhuborg
+    ```
 
-3. Clone the purealoe repository:
+1. Clone the purealoe repository:
 
-```
-git clone https://github.com/trailheadapps/purealoe-lwc
-cd purealoe-lwc
-```
+    ```
+    git clone https://github.com/trailheadapps/purealoe-lwc
+    cd purealoe-lwc
+    ```
 
-4. Create a scratch org and provide it with an alias (**purealoe** in the command below):
+1. Create a scratch org and provide it with an alias (**purealoe** in the command below):
 
-```
-sfdx force:org:create -s -f config/project-scratch-def.json -a purealoe
-```
+    ```
+    sfdx force:org:create -s -f config/project-scratch-def.json -a purealoe
+    ```
 
-5. Push the app to your scratch org:
+1. Push the app to your scratch org:
 
-```
-sfdx force:source:push
-```
+    ```
+    sfdx force:source:push
+    ```
 
-6. Assign the purealoe permission set to the default user:
+1. Assign the purealoe permission set to the default user:
 
-```
-sfdx force:user:permset:assign -n purealoe
-```
+    ```
+    sfdx force:user:permset:assign -n purealoe
+    ```
 
-7. Load sample data:
+1. Import sample data:
 
-```
-sfdx force:data:tree:import --plan ./data/Harvest_Field__c-plan.json
-sfdx force:data:tree:import --plan ./data/Merchandise__c-plan.json
-```
+    ```
+    sfdx force:data:tree:import -p ./data/Harvest_Field__c-plan.json
+    sfdx force:data:tree:import -p ./data/Merchandise__c-plan.json
+    ```
 
-8. Open the scratch org:
+1. Open the scratch org:
 
-```
-sfdx force:org:open
-```
+    ```
+    sfdx force:org:open
+    ```
 
-9. In **App Launcher**, select the **Pure Aloe** app
+1. Open the App Launcher, click **View all** then select the **Pure Aloe** app
 
-10. Have fun exploring!
+1. Have fun exploring!
 
 ### Installing Pure Aloe using an unlocked package
 
-Use this option if you don't have the Salesforce CLI configured or if you want to experience the sample app and do not plan to modify the code.
+Follow this set of instructions if you want to deploy the app to a more permanent environment than a Scratch org or if you don't want to install the local developement tools. You can use a non source-tracked orgs such as a free [Developer Edition Org](https://developer.salesforce.com/signup) or a [Trailhead Playground](https://trailhead.salesforce.com/).
 
-1. [Sign up](https://developer.salesforce.com/signup) for a Developer Edition (DE) org.
+Make sure to start from a brand-new environment to avoid conflicts with previous work you may have done.
 
-2. Enable MyDomain in your DE org. Instructions to do this are [here](https://trailhead.salesforce.com/modules/identity_login/units/identity_login_my_domain).
+1. Log in to your org
 
-3. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tB0000000Azj5IAC) to install the Pure Aloe unlocked package into your DE org. Approve the Third-Party access during the installation process.
+1. If you are setting up a Developer Edition: go to **Setup**, under **My Domain**, [register a My Domain](https://help.salesforce.com/articleView?id=domain_name_setup.htm&type=5).
 
-4. Select **Install for All Users**
+1. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tB0000000Azj5IAC) to install the Pure Aloe unlocked package into your org. Approve the Third-Party access during the installation process.
 
-5. Import Harvest Field data:
+1. Select **Install for All Users**
 
--   In **Setup**, type **Data Import** in the Quick Find box and click **Data Import Wizard**.
--   Click **Launch Wizard**.
--   Click the **Custom objects** tab, click **Harvest Fields**, and click **Add new records**.
--   Drag **Harvest_Field_Data.csv** from the data folder of this project to the upload area.
--   Click **Next**, **Next**, and **Start Import**.
+1. Import Harvest Field data:
 
-6. Import Merchandise data:
+    - In **Setup**, type **Data Import** in the Quick Find box and click **Data Import Wizard**.
+    - Click **Launch Wizard**.
+    - Click the **Custom objects** tab, click **Harvest Fields**, and click **Add new records**.
+    - Drag **Harvest_Field_Data.csv** from the data folder of this project to the upload area.
+    - Click **Next**, **Next**, and **Start Import**.
 
--   In **Setup**, type **Data Import** in the Quick Find box and click **Data Import Wizard**.
--   Click **Launch Wizard**.
--   Click the **Custom objects** tab, click **Merchandises**, and click **Add new records**.
--   Drag **Merchandise_Data.csv** from the data folder of this project to the upload area.
--   Click **Next**, **Next**, and **Start Import**.
+1. Import Merchandise data:
 
-7. In **App Launcher**, select the **PureAloe** app
+    - In **Setup**, type **Data Import** in the Quick Find box and click **Data Import Wizard**.
+    - Click **Launch Wizard**.
+    - Click the **Custom objects** tab, click **Merchandises**, and click **Add new records**.
+    - Drag **Merchandise_Data.csv** from the data folder of this project to the upload area.
+    - Click **Next**, **Next**, and **Start Import**.
 
-8. Have fun exploring!
+1. In **App Launcher**, click **View all** then select the **PureAloe** app
+
+1. Have fun exploring!
 
 ## Optional Installation Instructions
 
