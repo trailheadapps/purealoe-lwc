@@ -40,10 +40,10 @@ There are two ways to install Pure Aloe:
 
 1. Set up your environment. Follow the steps in the [Quick Start: Lightning Web Components](https://trailhead.salesforce.com/content/learn/projects/quick-start-lightning-web-components/) Trailhead project. The steps include:
 
-    -   Enable Dev Hub in your Trailhead Playground
-    -   Install Salesforce CLI
-    -   Install Visual Studio Code
-    -   Install the Visual Studio Code Salesforce extensions, including the Lightning Web Components extension
+    - Enable Dev Hub in your Trailhead Playground
+    - Install Salesforce CLI
+    - Install Visual Studio Code
+    - Install the Visual Studio Code Salesforce extensions, including the Lightning Web Components extension
 
 1. If you haven't already done so, authenticate with your hub org and provide it with an alias (**myhuborg** in the command below):
 
@@ -109,19 +109,19 @@ Make sure to start from a brand-new environment to avoid conflicts with previous
 
 1. Import Harvest Field data:
 
-    -   In **Setup**, type **Data Import** in the Quick Find box and click **Data Import Wizard**.
-    -   Click **Launch Wizard**.
-    -   Click the **Custom objects** tab, click **Harvest Fields**, and click **Add new records**.
-    -   Drag **Harvest_Field_Data.csv** from the data folder of this project to the upload area.
-    -   Click **Next**, **Next**, and **Start Import**.
+    - In **Setup**, type **Data Import** in the Quick Find box and click **Data Import Wizard**.
+    - Click **Launch Wizard**.
+    - Click the **Custom objects** tab, click **Harvest Fields**, and click **Add new records**.
+    - Drag **Harvest_Field_Data.csv** from the data folder of this project to the upload area.
+    - Click **Next**, **Next**, and **Start Import**.
 
 1. Import Merchandise data:
 
-    -   In **Setup**, type **Data Import** in the Quick Find box and click **Data Import Wizard**.
-    -   Click **Launch Wizard**.
-    -   Click the **Custom objects** tab, click **Merchandises**, and click **Add new records**.
-    -   Drag **Merchandise_Data.csv** from the data folder of this project to the upload area.
-    -   Click **Next**, **Next**, and **Start Import**.
+    - In **Setup**, type **Data Import** in the Quick Find box and click **Data Import Wizard**.
+    - Click **Launch Wizard**.
+    - Click the **Custom objects** tab, click **Merchandises**, and click **Add new records**.
+    - Drag **Merchandise_Data.csv** from the data folder of this project to the upload area.
+    - Click **Next**, **Next**, and **Start Import**.
 
 1. In **App Launcher**, click **View all** then select the **PureAloe** app
 
