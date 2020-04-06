@@ -1,5 +1,5 @@
 ({
-    toggle: function(component, event, helper) {
+    toggle: function (component, event, helper) {
         component.set('v.fullScreen', !component.get('v.fullScreen'));
         $A.util.toggleClass(component.find('container'), 'fullscreen');
         var leftColumn = component.find('leftColumn');

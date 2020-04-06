@@ -25,7 +25,7 @@ export default class Bundle extends LightningElement {
             this.bundleItems = undefined;
         } else if (data) {
             this.error = undefined;
-            this.bundleItems = data.map(item => {
+            this.bundleItems = data.map((item) => {
                 return {
                     id: item.Id,
                     merchandiseId: item.Merchandise__r.Id,
@@ -48,7 +48,7 @@ export default class Bundle extends LightningElement {
             .then(() => {
                 this.calculateBundle();
             })
-            .catch(error => {
+            .catch((error) => {
                 this.error = error;
             });
     }
@@ -59,7 +59,7 @@ export default class Bundle extends LightningElement {
         let totalQty = 0;
         let totalMSRP = 0;
         if (bundleItems && Array.isArray(bundleItems)) {
-            bundleItems.forEach(bundleItem => {
+            bundleItems.forEach((bundleItem) => {
                 totalQty += bundleItem.qty;
                 totalMSRP += bundleItem.qty * bundleItem.price;
             });
@@ -124,12 +124,12 @@ export default class Bundle extends LightningElement {
             }
         };
         createRecord(recordInput)
-            .then(result => {
+            .then((result) => {
                 bundleItem.id = result.id;
                 this.bundleItems.push(bundleItem);
                 this.calculateBundle();
             })
-            .catch(error => {
+            .catch((error) => {
                 this.error = error;
             });
     }
@@ -146,7 +146,7 @@ export default class Bundle extends LightningElement {
                 this.bundleItems = currentBundleItems;
                 this.calculateBundle();
             })
-            .catch(error => {
+            .catch((error) => {
                 this.error = error;
             });
     }
@@ -167,7 +167,7 @@ export default class Bundle extends LightningElement {
                 });
                 this.calculateBundle();
             })
-            .catch(error => {
+            .catch((error) => {
                 this.error = error;
             });
     }

@@ -11,7 +11,7 @@ export default class IrrigationDialog extends LightningElement {
         const selectedFields = this.selectedHarvestFields;
 
         const options = [];
-        fields.forEach(field => {
+        fields.forEach((field) => {
             options.push({
                 value: field.Id,
                 label: field.Name
@@ -19,7 +19,7 @@ export default class IrrigationDialog extends LightningElement {
         });
 
         const value = [];
-        selectedFields.forEach(field => {
+        selectedFields.forEach((field) => {
             value.push(field.Id);
         });
         this.options = options;
@@ -34,7 +34,7 @@ export default class IrrigationDialog extends LightningElement {
         const selectedIds = this.value;
         const fields = [];
 
-        this.harvestFields.forEach(harvestField => {
+        this.harvestFields.forEach((harvestField) => {
             if (selectedIds.indexOf(harvestField.Id) > -1) {
                 fields.push({
                     id: harvestField.Id,

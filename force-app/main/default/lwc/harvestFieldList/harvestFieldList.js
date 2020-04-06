@@ -46,7 +46,7 @@ export default class HarvestFieldList extends NavigationMixin(
             this.tableData = data;
             const map = {};
             const items = [];
-            data.forEach(field => {
+            data.forEach((field) => {
                 if (!map[field.Crop__c]) {
                     map[field.Crop__c] = [];
                 }
@@ -57,7 +57,7 @@ export default class HarvestFieldList extends NavigationMixin(
                 });
             });
 
-            Object.keys(map).forEach(key => {
+            Object.keys(map).forEach((key) => {
                 items.push({
                     label: key,
                     expanded: false,
@@ -74,11 +74,11 @@ export default class HarvestFieldList extends NavigationMixin(
 
     connectedCallback() {
         // EMP API Error handling
-        onError(error => {
+        onError((error) => {
             this.error = error;
         });
 
-        subscribe('/event/Field_Status_Change__e', -1, message => {
+        subscribe('/event/Field_Status_Change__e', -1, (message) => {
             this.empMessage = message;
         });
     }
