@@ -149,10 +149,10 @@ export default class HarvestField extends NavigationMixin(LightningElement) {
         recordUpdate.fields.Irrigation__c = event.target.checked;
         updateRecord(recordUpdate)
             // eslint-disable-next-line no-unused-vars
-            .then(result => {
+            .then((result) => {
                 // leave here, not needed
             })
-            .catch(error => {
+            .catch((error) => {
                 this.dispatchEvent(
                     new ShowToastEvent({
                         title: 'Error on data save',

@@ -1,5 +1,5 @@
 ({
-    updateFlowData: function(component, event, helper) {
+    updateFlowData: function (component, event, helper) {
         if (event.getParam('startTime')) {
             component.set('v.startTime', event.getParam('startTime'));
         } else if (event.getParam('duration')) {

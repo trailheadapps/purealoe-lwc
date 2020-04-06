@@ -57,7 +57,7 @@ export default class HarvestFieldMap extends LightningElement {
             this.template.translateX = 0;
             this.template.translateY = 0;
 
-            this.template.addEventListener('mouseup', event => {
+            this.template.addEventListener('mouseup', (event) => {
                 const classList = event.target.classList;
                 let fieldId;
 
@@ -74,7 +74,7 @@ export default class HarvestFieldMap extends LightningElement {
                 } else if (fieldId.value.substring(0, 5) === 'field') {
                     if (!event.shiftKey) {
                         // Unselect fields that are currently selected
-                        this.selectedFields.forEach(selectedField => {
+                        this.selectedFields.forEach((selectedField) => {
                             selectedField.style.strokeWidth = 0;
                         });
                         this.selectedFields = [];

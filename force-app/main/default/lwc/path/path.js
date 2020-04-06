@@ -12,7 +12,7 @@ export default class Path extends LightningElement {
     @api
     set steps(value) {
         this._stepsRaw = value;
-        this.stepsPrivate = value.map(val => {
+        this.stepsPrivate = value.map((val) => {
             return {
                 value: val,
                 cssClass: ''
